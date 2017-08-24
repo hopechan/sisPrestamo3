@@ -19,7 +19,7 @@
         </nav>
         <form class="form-horizontal" method="POST" action="index.php">
           <fieldset>
-            <h3 align="center" >Bienvenido/a</h3>
+            <br><br>
         <div class="form-group">
           <label class="col-md-4 control-label" for="Usuario">Usuario</label>
           <div class="col-md-4">
