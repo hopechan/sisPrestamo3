@@ -61,13 +61,13 @@
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="dui">DUI</label>
                         <div class="col-md-4">
-                          <input id="dui" name="dui" type="text" placeholder="" class="form-control input-md" required="">
+                          <input id="dui" name="dui" type="number" placeholder="" class="form-control input-md" required="">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="nit">NIT</label>
                         <div class="col-md-4">
-                          <input id="nit" name="nit" type="text" placeholder="" class="form-control input-md" required="">
+                          <input id="nit" name="nit" type="number" placeholder="" class="form-control input-md" required="">
                         </div>
                       </div>
                       <div class="form-group">
@@ -85,7 +85,7 @@
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="fecha_nacimiento">Fecha de Nacimiento</label>
                         <div class="col-md-4">
-                          <input id="fecha_nacimiento" name="fecha_nacimiento" type="text" placeholder="" class="form-control input-md" required="">
+                          <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" placeholder="" class="form-control input-md" required="">
                         </div>
                       </div>
                       <div class="form-group">
@@ -97,7 +97,7 @@
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="telefonos">Telefonos</label>
                         <div class="col-md-4">
-                          <input id="telefonos" name="telefonos" type="text" placeholder="" class="form-control input-md" required="">
+                          <textarea id="telefonos" name="telefonos" type="number" placeholder="" class="form-control input-md" required=""></textarea>
                         </div>
                       </div>
                       <div class="form-group">
