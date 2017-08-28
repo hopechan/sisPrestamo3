@@ -16,6 +16,9 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">SISTEMA PRÉSTAMOS</a>
                 </div>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+                </ul>
             </div>
         </nav>
         <div class="container-fluid">
@@ -41,6 +44,11 @@
                             <a href="webparametros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Configuración</a>
                         </li>
                     </ul>
+                    <ul class="nav nav-sidebar">
+                        <li>
+                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Usuarios</a>
+                        </li>
+                    </ul>
                 </div>
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -49,7 +57,7 @@
             <div class="col-md-8">
                 <input type="text" class="form-control" name="busqueda" autocomplete="off" id="busqueda" onkeyup="buscar();" placeholder="Buscar...">
             </div>
-            <a href="formCliente.php" class="btn btn-default">Nuevo cliente</a>
+            <a href="formCliente.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo cliente</a>
         </div>
         <br>
         <table class="table table-condensed" id="resultadoBusqueda">

@@ -15,6 +15,9 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">SISTEMA PRÉSTAMOS</a>
                 </div>
+								<ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+                </ul>
             </div>
         </nav>
         <div class="container-fluid">
@@ -40,6 +43,11 @@
                             <a href="webparametros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Configuración</a>
                         </li>
                     </ul>
+										<ul class="nav nav-sidebar">
+                        <li>
+                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Usuarios</a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 	<h1 class="page-header">Configuración</h1>
@@ -48,7 +56,7 @@
 	                		<div class="form-group">
                                 <?php
                                     require_once 'Parametro.php';
-                                    
+
                                     $par = new Parametro();
                                     $Parametro = $par->obtener();
                                     $nombre_empresa = '"' . $Parametro[0]->valor . '"';
@@ -91,7 +99,7 @@
                                <textarea class="form-control input-md" id="direccion" name="direccion">
                                   <?php
                                      echo $direccion;
-                                  ?> 
+                                  ?>
                                </textarea>
                                </div>
                             </div>

@@ -48,6 +48,9 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">SISTEMA PRÉSTAMOS</a>
                 </div>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+                </ul>
             </div>
         </nav>
         <div class="container-fluid">
@@ -71,6 +74,11 @@
                     <ul class="nav nav-sidebar">
                         <li>
                             <a href="webparametros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Configuración</a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li>
+                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Usuarios</a>
                         </li>
                     </ul>
                 </div>
