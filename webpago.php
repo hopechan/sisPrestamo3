@@ -71,6 +71,11 @@
                             <a href="webprestamo.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt"></span> Prestamos</a>
                         </li>
                     </ul>
+		    <ul class="nav nav-sidebar">
+                        <li>
+                            <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home"></span> Estados Financieros</a>
+                        </li>
+                    </ul>
                     <ul class="nav nav-sidebar">
                         <li>
                             <a href="webparametros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Configuración</a>
