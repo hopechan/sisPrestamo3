@@ -62,7 +62,7 @@
                     </ul>
 		    <ul class="nav nav-sidebar">
                         <li>
-                            <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home"></span> Estados Financieros</a>
+                            <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-usd"></span> Estados Financieros</a>
                         </li>
                     </ul>
                     <ul class="nav nav-sidebar">
@@ -72,7 +72,12 @@
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Usuarios</a>
+                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Usuarios</a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li>
+                            <a href="webBitacora.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-calendar"></span> Bitacora</a>
                         </li>
                     </ul>
                 </div>
@@ -92,7 +97,6 @@
           <label class="col-md-4 control-label" for="NIT">NIT</label>
           <div class="col-md-4">
           <input id="nit" name="nit" placeholder="Ingrese NIT" class="form-control input-md" required type="text" maxlength="17">
-
           </div>
         </div>
 
@@ -101,7 +105,6 @@
           <label class="col-md-4 control-label" for="nombre">Nombres</label>
           <div class="col-md-5">
           <input id="nombres" name="nombres" placeholder="Ingrese nombres del cliente" class="form-control input-md" required type="text" onkeypress="return validar(event)">
-
           </div>
         </div>
 

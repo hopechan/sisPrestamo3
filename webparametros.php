@@ -40,7 +40,7 @@
                     </ul>
 		    <ul class="nav nav-sidebar">
                         <li>
-                            <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home"></span> Estados Financieros</a>
+                            <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-usd"></span> Estados Financieros</a>
                         </li>
                     </ul>
                     <ul class="nav nav-sidebar">
@@ -50,7 +50,12 @@
                     </ul>
 										<ul class="nav nav-sidebar">
                         <li>
-                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Usuarios</a>
+                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Usuarios</a>
+                        </li>
+                    </ul>
+										<ul class="nav nav-sidebar">
+                        <li>
+                            <a href="webBitacora.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-calendar"></span> Bitacora</a>
                         </li>
                     </ul>
                 </div>

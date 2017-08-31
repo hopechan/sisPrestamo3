@@ -13,8 +13,6 @@ class reporteEstados extends FPDF{
   }
 }
 
-
-
 $pdf = new reporteEstados('P', 'mm', 'Letter');
 $pdf->AliasNbPages();
 $pdf->AddPage();
