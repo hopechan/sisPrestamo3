@@ -7,9 +7,31 @@
         <link rel="stylesheet" href="css/dashboard.css">
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/buscarPrestamos.js"></script>
+        <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
     </head>
     <body>
+      <script type="text/javascript">
+        jQuery(function($){
+          $("#dui").mask("99999999-9", {
+            completed:function(){
+              $("#dui").addClass("ok")
+            }
+          });
+
+          $("#nit").mask("9999-999999-999-9");
+          $("#telefono").mask("9999-9999")
+        });
+      </script>
+      <script type="text/javascript">
+        function validar(e) {
+          tecla=(document.all)?e.keyCode:e.which;
+          if (tecla==8) return true;
+          patron =/[A-Za-zÑñáéíóúÁÉÍÓÚ\s]/;
+          te=String.fromCharCode(tecla);
+          return patron.test(te);
+        }
+      </script>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -38,7 +60,7 @@
                             <a href="webprestamo.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt"></span> Prestamos</a>
                         </li>
                     </ul>
-		    <ul class="nav nav-sidebar">
+		                  <ul class="nav nav-sidebar">
                         <li>
                             <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-usd"></span> Estados Financieros</a>
                         </li>
@@ -60,7 +82,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" data-toggle="validator" role="form" action="formUsuario.php" method="POST">
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="nombre_usuario">Nombre de Usuario</label>
                         <div class="col-md-4">
@@ -70,14 +92,16 @@
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="pswd">Contraseña</label>
                         <div class="col-md-4">
-                          <input id="pswd" name="pswd" type="password" placeholder="Ingrese contraseña" class="form-control input-md" required="">
+                          <input id="pswd" name="pswd" type="password" data-minlength="6" placeholder="Ingrese contraseña" class="form-control input-md" required="">
+                          <div class="help-block">Seis caracteres como minimo</div>
                         </div>
                       </div>
                       <div  id="pswd_info"></div>
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="pswd2">Verificar Contraseña</label>
                         <div class="col-md-4">
-                          <input id="pswd2" name="pswd2" type="password" placeholder="Vuelva a ingresar la contraseña" class="form-control input-md" required="">
+                          <input id="pswd2" name="pswd2" type="password" placeholder="Vuelva a ingresar la contraseña" class="form-control input-md" data-match="#pswd" data-match-error="Las contraseñas no son iguales" required="">
+                          <div class="help-block with-errors"></div>
                         </div>
                       </div>
                       <div class="form-group">
