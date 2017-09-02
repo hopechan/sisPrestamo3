@@ -129,24 +129,6 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-md-4 control-label" for="fecha_nacimiento">Fecha de Nacimiento</label>
-                        <div class="col-md-4">
-                          <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" placeholder="" class="form-control input-md" required="">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-4 control-label" for="direccion">Direccion</label>
-                        <div class="col-md-4">
-                          <textarea id="direccion" name="direccion" type="text" placeholder="Ingrese Direccion" class="form-control input-md" required=""></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-4 control-label" for="telefonos">Telefonos</label>
-                        <div class="col-md-4">
-                          <input id="telefonos" name="telefonos" type="number" placeholder="Ingrese Telefono" class="form-control input-md" required=""></input>
-                        </div>
-                      </div>
-                      <div class="form-group">
                         <label class="col-md-4 control-label" for="guardar_usuario"></label>
                         <div class="col-md-4">
                           <button id="guardarUsuario" type="submit" name="guardarUsuario" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Guardar Usuario</button>
