@@ -82,44 +82,32 @@
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                  <form class="form-horizontal" data-toggle="validator" role="form" action="formUsuario.php" method="POST">
+                  <form class="form-horizontal" data-toggle="validator" role="form" action="guardarUsuario.php" method="POST">
                       <div class="form-group">
-                        <label class="col-md-4 control-label" for="nombre_usuario">Nombre de Usuario</label>
+                        <label class="col-md-4 control-label" for="login">Nombre de Usuario</label>
                         <div class="col-md-4">
-                          <span><input id="nombre_usuario" name="nombre_usuario" type="text" placeholder="Escriba un ID para el usuario" class="form-control input-md" required=""></span>
+                          <span><input id="login" name="login" type="text" placeholder="Escriba un ID para el usuario" class="form-control input-md" required=""></span>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-md-4 control-label" for="pswd">Contraseña</label>
+                        <label class="col-md-4 control-label" for="clave">Contraseña</label>
                         <div class="col-md-4">
-                          <input id="pswd" name="pswd" type="password" data-minlength="6" placeholder="Ingrese contraseña" class="form-control input-md" required="">
+                          <input id="clave" name="clave" type="password" data-minlength="6" placeholder="Ingrese contraseña" class="form-control input-md" required="">
                           <div class="help-block">Seis caracteres como minimo</div>
                         </div>
                       </div>
                       <div  id="pswd_info"></div>
                       <div class="form-group">
-                        <label class="col-md-4 control-label" for="pswd2">Verificar Contraseña</label>
+                        <label class="col-md-4 control-label" for="clave2">Verificar Contraseña</label>
                         <div class="col-md-4">
-                          <input id="pswd2" name="pswd2" type="password" placeholder="Vuelva a ingresar la contraseña" class="form-control input-md" data-match="#pswd" data-match-error="Las contraseñas no son iguales" required="">
+                          <input id="clave2" name="clave2" type="password" placeholder="Vuelva a ingresar la contraseña" class="form-control input-md" data-match="#clave" data-match-error="Las contraseñas no son iguales" required="">
                           <div class="help-block with-errors"></div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-4 control-label" for="dui">DUI</label>
-                        <div class="col-md-4">
-                          <input id="dui" name="dui" type="text" placeholder="Ingrese DUI" class="form-control input-md" required="" maxlength="10">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="col-md-4 control-label" for="nit">NIT</label>
-                        <div class="col-md-4">
-                          <input id="nit" name="nit" type="text" placeholder="Ingrese NIT" class="form-control input-md" required="" maxlength="17">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="nombre">Nombre</label>
                         <div class="col-md-4">
-                          <input id="nombre" name="nombre" type="text" placeholder="Ingrese Nombres" class="form-control input-md" required="">
+                          <input id="nombres" name="nombres" type="text" placeholder="Ingrese Nombres" class="form-control input-md" required="">
                         </div>
                       </div>
                       <div class="form-group">
@@ -128,6 +116,15 @@
                           <input id="apellidos" name="apellidos" type="text" placeholder="Ingrese Apellidos" class="form-control input-md" required="">
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="rol">Rol</label>
+                        <div class="col-md-2">
+                          <select id="rol" name="rol" class="form-control">
+                            <option value="A">Administrador</option>
+                            <option value="U">Usuario</option>
+                          </select>
+                        </div>
+                        </div>
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="guardar_usuario"></label>
                         <div class="col-md-4">

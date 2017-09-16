@@ -1,7 +1,7 @@
 <?php
 Class Conexion {
     private $host = 'localhost';
-    private $database = 'prestamosv2';
+    private $database = 'prestamosv3';
     private $username = 'root';
     private $password = '1234';
 

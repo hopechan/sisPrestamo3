@@ -72,16 +72,35 @@
                      <thead>
                          <tr>
                          <th>ID usuario</th>
-                         <th>DUI</th>
+                         <th>login</th>
                          <th>NIT</th>
                          <th>Nombres</th>
                          <th>Apellidos</th>
-                         <th>Dirección</th>
-                         <th>Teléfono</th>
-                         <th>Opciones</th>
+                         <th>Rol</th>
                          </tr>
                      </thead>
                      <tbody>
+                       <?php
+                            require_once 'ControladorUsuario.php';
+                            $cu = new ControladorUsuario();
+                            $Users = $cu->obtenerTodos();
+                            $numUsers = count($Users);
+                            for ($i = 0; $i < $numUsers; $i++) {
+                                echo "<tr>";
+                                echo "<td>" . $Users[$i]->getId_usuario() . "</td>";
+                                echo "<td>" . $Users[$i]->getLogin() . "</td>";
+                                echo "<td>" . $Users[$i]->getNombres() . "</td>";
+                                echo "<td>" . $Users[$i]->getApellidos() . "</td>";
+                                echo "<td>";
+                                if ($Users[$i]->getRol() == "A") {
+                                    echo "Administrador";
+                                } else {
+                                    echo "Usuario standard";
+                                }
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
                      </tbody>
                  </table>
                  </div>

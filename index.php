@@ -50,7 +50,7 @@
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Usuarios</a>
+                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Usuarios</a>
                         </li>
                     </ul>
                     <ul class="nav nav-sidebar">
