@@ -34,21 +34,19 @@ class Parametro {
    //FUNCTIONS
    function obtener () {
    	  $conn = new Conexion();
-   	  $stmn = "SELECT * FROM parametros";
+   	  $stmn = "SELECT * FROM Parametro";
    	  $resultado = $conn->execQueryO($stmn);
-
    	  $Parametro = array();
 
    	  while ($parametro = $resultado->fetch_assoc()) {
    	     $par = new Parametro();
 
-   	     $par->setId_parametro($parametro['id']);
-   	     $par->setNombre($parametro['parametro']);
+   	     $par->setId_parametro($parametro['ID_parametro']);
+   	     $par->setNombre($parametro['nombre']);
    	     $par->setValor($parametro['valor']);
 
    	     array_push($Parametro, $par);
    	  }
-
    	  return $Parametro;
    }
 
@@ -58,8 +56,7 @@ class Parametro {
    		$id_parametro = $par->getId_parametro();
    		$nombre = $par->getNombre();
    		$valor = $par->getValor();
-
-   		$stmn = "UPDATE parametros SET valor = '" . $valor . "' WHERE id = '" . $id_parametro . "'";
+   		$stmn = "UPDATE Parametro SET valor = '" . $valor . "' WHERE ID_parametro = '" . $id_parametro . "'";
    		$conn->execQuery($stmn);
    }
 }

@@ -30,19 +30,6 @@ class Prestamo {
         }
     }
 
-    function calcularCuotaMensual(){
-        try {
-            $numerador=($tasa_interes($tasa_interes +1))^($cantidad_cuotas);
-            $denominador=($tasa_interes + 1)^($cantidad_cuotas) - 1;
-            $valor_cuota= $monto*($numerador/$denominador);
-            $fecha_inicio = date("Y-m-d H:i:s"); //devuelve en formato DATETIME igual a mysql   2001-03-10 17:16:18
-            $fecha_fin = date('Y-m-d', strtotime("$fecha_inicio + $cantidad_cuotas day"));
-            throw new ErrorPrestamo();
-        } catch (ErrorPrestamo $e) {
-            echo $e->nuevo($titulo, $ubicacion, $mensaje);
-        }
-    }
-
     function agregarCuota(Cuota $c) {
         try {
             $id_prestamo = $c->getId_prestamo();
@@ -57,36 +44,16 @@ class Prestamo {
             $cuotas = array();
             array_push($cuotas, $c);
             $conn = new Conexion();
-            $stmn = "INSERT INTO cuota(id_prestamo, num_cuota, valor, interes, fecha, capital, saldo_anterior, saldo_actualizado, mora) VALUES ('".$id_prestamo."','".$num_cuota."', '".$valor."','".$interes."','".$fecha."','".$capital."','".$saldo_anterior."','".$saldo_actualizado."','".$mora."')";
+            $stmn = "INSERT INTO Cuota(ID_prestamo, num_cuota, valor, interes, fecha, capital, saldo_anterior, saldo_actualizado, mora) VALUES ('".$id_prestamo."','".$num_cuota."', '".$valor."','".$interes."','".$fecha."','".$capital."','".$saldo_anterior."','".$saldo_actualizado."','".$mora."')";
             $conn->execQuery($stmn);
             if ($saldo_actualizado != 0) {
-                $stmn2 = "UPDATE prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."', fecha_fin = '" . $fecha . "' WHERE id_prestamo='".$id_prestamo."'";
+                $stmn2 = "UPDATE Prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."', fecha_fin = '" . $fecha . "' WHERE ID_prestamo='".$id_prestamo."'";
                 $conn->execQuery($stmn2);
             } else {
-                $stmn2 = "UPDATE prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."',estado = 'I', fecha_fin = '" . $fecha . "' WHERE id_prestamo='".$id_prestamo."'";
+                $stmn2 = "UPDATE Prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."',estado = 'I', fecha_fin = '" . $fecha . "' WHERE ID_prestamo='".$id_prestamo."'";
                 $conn->execQuery($stmn2);
             }
-            
-        } catch (ErrorPrestamo $e) {
-            echo $e->nuevo($titulo, $ubicacion, $mensaje);
-        }
-    }
 
-    function calcularInteresMensual() {
-        //I = F - P
-        //F = P(1 + i)^n
-        try {
-            $fin = date("Y-m-d H:i:s"); //fecha actual
-            $fechaI = new DateTime($fecha_inicio);
-            $fechaF = new DateTime($fin);
-            $intervalo = $fechaI->diff($fechaF);
-            $intervalMeses=$intervalo->format("%m");
-            $intervalAnios=$intervalo->format("%y")*12;
-       //echo "hay una diferencia de ".($intervalMeses+$intervalAnios)." meses";
-            $n=$intervalMeses+$intervalAnios;
-            $F = $monto(1 + $tasa_interes)^$n;
-            $interes = $F - $monto;
-            throw new ErrorPrestamo();
         } catch (ErrorPrestamo $e) {
             echo $e->nuevo($titulo, $ubicacion, $mensaje);
         }

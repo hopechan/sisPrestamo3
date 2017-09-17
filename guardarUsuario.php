@@ -5,7 +5,7 @@ require_once 'ControladorUsuario.php';
 
 $conn = new Conexion();
 $u = new Usuario();
-$cu = new ControladorUsuario();
+$cUsuario = new Usuario();
 
 //recupera el maximo valor del id_usuario y le suma 1
 $stmn = "SELECT MAX(ID_usuario) FROM Usuario";
@@ -28,7 +28,7 @@ $u->setApellidos($apellidos);
 $u->setClave($clave);
 $u->setRol($rol);
 
-$cu->agregar($u);
+$cUsuario->agregar($u);
 
 //Alerta que se guardo :v
 echo '<script type="text/javascript">

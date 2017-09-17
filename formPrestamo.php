@@ -77,7 +77,7 @@
                         $numClientes = count($Cliente);
 
                         for ($i=0; $i < $numClientes; $i++) {
-                          echo '<option value="' . $Cliente[$i]->dui . '">' . $Cliente[$i]->nombres . ' ' .$Cliente[$i]->apellidos ."</option>";
+                          echo '<option value="' . $Cliente[$i]->dui . '">' . $Cliente[$i]->nombre . ' ' .$Cliente[$i]->apellidos ."</option>";
                         }
                       ?>
                   </select>

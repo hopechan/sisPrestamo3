@@ -92,7 +92,7 @@
               $numPrestamos = count($prestamos);
               for ($i=0; $i <$numPrestamos ; $i++) {
                 $conn = new Conexion();
-                $stmn = "SELECT MAX(num_cuota) FROM cuota WHERE id_prestamo='" . $prestamos[$i]->id_prestamo . "'";
+                $stmn = "SELECT MAX(num_cuota) FROM Cuota WHERE ID_prestamo='" . $prestamos[$i]->id_prestamo . "'";
                 $resultado = $conn->execQueryO($stmn);
                 $max_cuota = $resultado->fetch_assoc();
                 $porcentaje = (100-($prestamos[$i]->saldo / $prestamos[$i]->monto)*100);
@@ -100,14 +100,14 @@
                 echo '<tr>';
                    echo '<td>' . $prestamos[$i]->id_prestamo. '</td>';
                    echo '<td>' . $prestamos[$i]->cliente->dui . '</td>';
-                   echo '<td>' . $prestamos[$i]->cliente->nombres . ' ' . $prestamos[$i]->cliente->apellidos . '</td>';
+                   echo '<td>' . $prestamos[$i]->cliente->nombre . ' ' . $prestamos[$i]->cliente->apellidos . '</td>';
                    echo '<td>$' . $prestamos[$i]->monto. '</td>';
                    echo '<td>$' . $prestamos[$i]->saldo . '</td>';
                    echo '<td>' . $prestamos[$i]->tasa_interes. '%</td>';
                    echo '<td>' .round($porcentaje, 2) . '%</td>';
                    echo '<td>'.'<a href="detallePrestamo.php?id_prestamo='.$prestamos[$i]->id_prestamo.'" data-toggle="tooltip" data-placement="bottom" title="Detalle"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-eye-open"></i></button></a>';
-                   echo '<a href="webpago.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&fecha_ultimo_pago='.$prestamos[$i]->fecha_ultimo_pago.'&nombres='.$prestamos[$i]->cliente->nombres.'&apellidos='.$prestamos[$i]->cliente->apellidos.'&monto='.$prestamos[$i]->monto.'&tasa_interes='.$prestamos[$i]->tasa_interes.'&cantidad_cuotas='.$prestamos[$i]->cantidad_cuotas.'&valor_cuota='.$prestamos[$i]->valor_cuota.'" data-toggle="tooltip" data-placement="bottom" title="Nuevo pago"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-usd"></i></button></a>';
-                   echo '<a href="reporte.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&dui='.$prestamos[$i]->cliente->dui.'&nombres='.$prestamos[$i]->cliente->nombres.'&apellidos='.$prestamos[$i]->cliente->apellidos.'&monto='.$prestamos[$i]->monto.'&tasa='.$prestamos[$i]->tasa_interes.'" data-toggle="tooltip" data-placement="bottom" title="Contrato"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i></button></a></tr>';
+                   echo '<a href="webpago.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&fecha_ultimo_pago='.$prestamos[$i]->fecha_ultimo_pago.'&nombres='.$prestamos[$i]->cliente->nombre.'&apellidos='.$prestamos[$i]->cliente->apellidos.'&monto='.$prestamos[$i]->monto.'&tasa_interes='.$prestamos[$i]->tasa_interes.'&cantidad_cuotas='.$prestamos[$i]->cantidad_cuotas.'&valor_cuota='.$prestamos[$i]->valor_cuota.'" data-toggle="tooltip" data-placement="bottom" title="Nuevo pago"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-usd"></i></button></a>';
+                   echo '<a href="reporte.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&dui='.$prestamos[$i]->cliente->dui.'&nombres='.$prestamos[$i]->cliente->nombre.'&apellidos='.$prestamos[$i]->cliente->apellidos.'&monto='.$prestamos[$i]->monto.'&tasa='.$prestamos[$i]->tasa_interes.'" data-toggle="tooltip" data-placement="bottom" title="Contrato"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i></button></a></tr>';
               }
                ?>
             </tbody>

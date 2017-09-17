@@ -112,47 +112,7 @@
                ?>
             </tbody>
         </table>
-        <h3> <br></h3>
-        <h3 align="center">INACTIVOS</h3>
-        <table class="table table-condensed" id="inactivos">
-            <thead>
-              <tr>
-              <th>ID</th>
-              <th>DUI</th>
-              <th>Nombre</th>
-              <th>Monto</th>
-              <th>Saldo</th>
-              <th>Interés</th>
-              <th>Cancelado</th>
-              <th>Opciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              require_once 'ControladorPrestamo.php';
-              require_once 'Conexion.php';
-              $cPrestamo = new ControladorPrestamo();
-              $prestamos = $cPrestamo->obtenerInactivos();
-              $numPrestamos = count($prestamos);
-              for ($i=0; $i <$numPrestamos ; $i++) {
-                $stmn = "SELECT MAX(num_cuota) FROM cuota WHERE id_prestamo='" . $prestamos[$i]->id_prestamo . "'";
-                $resultado = $conn->execQueryO($stmn);
-                $max_cuota = $resultado->fetch_assoc();
-                $cu = $max_cuota['MAX(num_cuota)'] + 1;
-                echo '<tr>';
-                   echo '<td>' . $prestamos[$i]->id_prestamo. '</td>';
-                   echo '<td>' . $prestamos[$i]->cliente->dui . '</td>';
-                   echo '<td>' . $prestamos[$i]->cliente->nombres . ' ' . $prestamos[$i]->cliente->apellidos . '</td>';
-                   echo '<td>$' . $prestamos[$i]->monto. '</td>';
-                   echo '<td>$' . $prestamos[$i]->saldo . '</td>';
-                   echo '<td>' . $prestamos[$i]->tasa_interes. '%</td>';
-                   echo '<td>' . (100-($prestamos[$i]->saldo / $prestamos[$i]->monto)*100). '%</td>';
-                   echo '<td>'.'<a href="detallePrestamo.php?id_prestamo='.$prestamos[$i]->id_prestamo.'" data-toggle="tooltip" data-placement="bottom" title="Detalle"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-eye-open"></i></button></a>';
-                   echo '<a href="reporte.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&dui='.$prestamos[$i]->cliente->dui.'&nombres='.$prestamos[$i]->cliente->nombres.'&apellidos='.$prestamos[$i]->cliente->apellidos.'&monto='.$prestamos[$i]->monto.'&tasa='.$prestamos[$i]->tasa_interes.'" data-toggle="tooltip" data-placement="bottom" title="Contrato"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-file"></i></button></a></tr>';
-              }
-               ?>
-            </tbody>
-        </table>
+        <h3> <br></h3>      
         </div>
         </div>
         </div>

@@ -5,7 +5,7 @@ require_once 'Cuota.php';
 require_once 'Conexion.php';
 
  $conn = new Conexion();
- $stmn =  "SELECT MAX(num_cuota) FROM cuota WHERE id_prestamo='" . $_POST['id_prestamo'] . "'";
+ $stmn =  "SELECT MAX(num_cuota) FROM Cuota WHERE ID_prestamo='" . $_POST['id_prestamo'] . "'";
  $resultado = $conn->execQueryO($stmn);
  $max_cuota = $resultado->fetch_assoc();
  $num_cuota = $max_cuota['MAX(num_cuota)'] + 1;

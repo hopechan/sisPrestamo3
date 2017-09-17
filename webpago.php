@@ -23,11 +23,11 @@
           $num_cuota = $_GET['cantidad_cuotas'];
           $valor_cuota = $_GET['valor_cuota'];
 
-          $stmn = "SELECT * FROM prestamo WHERE id_prestamo = '" . $_GET['id_prestamo'] . "'";
+          $stmn = "SELECT * FROM Prestamo WHERE ID_prestamo = '" . $_GET['id_prestamo'] . "'";
           $resultado = $conn->execQueryO($stmn);
           $prestamo = $resultado->fetch_assoc();
 
-          $stmn2 = "SELECT MAX(num_cuota) FROM cuota WHERE id_prestamo='" . $_GET['id_prestamo'] . "'";
+          $stmn2 = "SELECT MAX(num_cuota) FROM Cuota WHERE ID_prestamo='" . $_GET['id_prestamo'] . "'";
           $resultado2 = $conn->execQueryO($stmn2);
           $max_cuota = $resultado2->fetch_assoc();
           $cu = $max_cuota['MAX(num_cuota)'] + 1;

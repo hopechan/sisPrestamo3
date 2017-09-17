@@ -152,7 +152,13 @@
           <label class="col-md-4 control-label" for="textinput">Teléfono</label>
           <div class="col-md-4">
           <input id="telefono" name="telefono" placeholder="Ingrese teléfono del cliente" class="form-control input-md" required="" type="text" maxlength="9">
+          </div>
+        </div>
 
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Profesion</label>
+          <div class="col-md-4">
+          <input id="profesion" name="profesion" placeholder="Ingrese profesion del cliente" class="form-control input-md" required="" type="text" onkeypress="return validar(event)">
           </div>
         </div>
 

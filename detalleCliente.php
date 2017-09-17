@@ -40,7 +40,7 @@
           $fecha_nacimiento = $_GET['fecha_nacimiento'].'</h5>';
           $telefono = $_GET['telefono'].'</h5>';
           $observaciones = $_GET['observaciones'].'</h5>';
-
+        //  $profesion = $_GET['profesion']. '</h5>';
          ?>
     </head>
     <body>
@@ -116,6 +116,7 @@
                   <h5 id="ClientefechaNacimiento">Fecha de nacimiento: <?php echo $fecha_nacimiento; ?>
                   <h5 id="Clientedireccion">Direccion: <?php echo $direccion; ?>
                   <h5 id="Clientetelefono">Telefono: <?php echo $telefono; ?>
+                  
                 </div>
               </div>
             </div>

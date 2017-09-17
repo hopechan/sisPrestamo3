@@ -77,6 +77,7 @@
                 <th>NIT</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
+                <th>Profesion</th>
                 <th>Sexo</th>
                 <th>Dirección</th>
                 <th>Teléfono</th>
@@ -94,14 +95,15 @@
 	               	echo "<tr>";
 	                echo "<td>" . $Cliente[$i]->dui . "</td>";
 	                echo '<td>' . $Cliente[$i]->nit . '</td>';
-	                echo '<td>' . $Cliente[$i]->nombres . '</td>';
+	                echo '<td>' . $Cliente[$i]->nombre . '</td>';
 	                echo '<td>' . $Cliente[$i]->apellidos . '</td>';
+                  echo '<td>' . $Cliente[$i]->profesion . '</td>';
 	                echo '<td>' . $Cliente[$i]->sexo . '</td>';
 	                echo '<td>' . $Cliente[$i]->direccion . '</td>';
-	                echo '<td>' . $Cliente[$i]->telefono . '</td>';
+	                echo '<td>' . $Cliente[$i]->telefonos . '</td>';
 	                echo '<td>' . $Cliente[$i]->fecha_nacimiento . '</td>';
-	                echo '<td>'.'<a href="detalleCliente.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombres.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefono.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&observaciones='.$Cliente[$i]->observaciones.'" data-toggle="tooltip" data-placement="bottom" title="Modificar"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-eye-open"></i></button></a>';
-	                echo '<a href="eliminar.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombres.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefono.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&observaciones='.$Cliente[$i]->observaciones.'" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><button class="btn btn-sm btn-info" ><i class="glyphicon glyphicon-remove"></i></button></a></tr>';
+	                echo '<td>'.'<a href="detalleCliente.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombre.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefonos.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&observaciones='.$Cliente[$i]->observaciones.'" data-toggle="tooltip" data-placement="bottom" title="Modificar"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-eye-open"></i></button></a>';
+	                echo '<a href="eliminar.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombre.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefonos.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&observaciones='.$Cliente[$i]->observaciones.'" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><button class="btn btn-sm btn-info" ><i class="glyphicon glyphicon-remove"></i></button></a></tr>';
 	                echo '</tr>';
                 }
             ?>

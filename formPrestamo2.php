@@ -11,26 +11,26 @@
     $dui = $_POST['cliente'];
 
     $conn = new Conexion();
-    $stmn = "SELECT * FROM cliente WHERE dui = '" . $dui . "'";
+    $stmn = "SELECT * FROM Cliente WHERE DUI = '" . $dui . "'";
     $resultado = $conn->execQueryO($stmn);
 
     $cliente = $resultado->fetch_assoc();
 
-    $c->setDui($cliente['dui']);
-    $c->setNit($cliente['nit']);
-    $c->setNombres($cliente['nombres']);
-    $c->setApellidos($cliente['apellidos']);
-    $c->setSexo($cliente['sexo']);
+    $c->setDui($cliente['DUI']);
+    $c->setNit($cliente['NIT']);
+    $c->setNombre($cliente['Nombre']);
+    $c->setApellidos($cliente['Apellidos']);
+    $c->setSexo($cliente['Sexo']);
     $c->setDireccion($cliente['direccion']);
-    $c->setTelefono($cliente['telefonos']);
+    $c->setTelefonos($cliente['telefonos']);
     $c->setFecha_nacimiento($cliente['fecha_nacimiento']);
     $c->setObservaciones($cliente['observaciones']);
 
-    $stmn2 = "SELECT MAX(id_prestamo) FROM prestamo";
+    $stmn2 = "SELECT MAX(ID_prestamo) FROM Prestamo";
     $resultado = $conn->execQueryO($stmn2);
     $max_id_prestamo = $resultado->fetch_assoc();
 
-    $id_prestamo = $max_id_prestamo['MAX(id_prestamo)'] + 1;
+    $id_prestamo = $max_id_prestamo['MAX(ID_prestamo)'] + 1;
 
     $p->setId_prestamo($id_prestamo);
     $p->setCliente($c);
