@@ -71,7 +71,7 @@
               $numPrestamos = count($prestamos);
             for ($i=0; $i <$numPrestamos ; $i++) {
                 $conn = new Conexion();
-                $stmn = "SELECT MAX(num_cuota) FROM cuota WHERE ID_prestamo='" . $prestamos[$i]->id_prestamo . "'";
+                $stmn = "SELECT MAX(num_cuota) FROM Cuota WHERE ID_prestamo='" . $prestamos[$i]->id_prestamo . "'";
                 $resultado = $conn->execQueryO($stmn);
                 $max_cuota = $resultado->fetch_assoc();
                 $porcentaje = (100-($prestamos[$i]->saldo / $prestamos[$i]->monto)*100);
