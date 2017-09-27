@@ -40,7 +40,7 @@
           $fecha_nacimiento = $_GET['fecha_nacimiento'].'</h5>';
           $telefono = $_GET['telefono'].'</h5>';
           $observaciones = $_GET['observaciones'].'</h5>';
-        //  $profesion = $_GET['profesion']. '</h5>';
+
          ?>
     </head>
     <body>
@@ -57,42 +57,22 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-3 col-md-2 sidebar" id="sidebar">
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="index.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home"></span> Principal</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webcliente.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Clientes</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webprestamo.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt"></span> Prestamos</a>
-                        </li>
-                    </ul>
-		    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-usd"></span> Estados Financieros</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webparametros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Configuración</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Usuarios</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webBitacora.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-calendar"></span> Bitacora</a>
-                        </li>
-                    </ul>
-                </div>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="index.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home"></span> Principal</a>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="webClientes.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Clientes</a>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="webPrestamos.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt"></span> Prestamos</a>
+                </li>
+            </ul>
+          </div>
           <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div class="container" id="panelInfo">
               <div class="row">
@@ -116,14 +96,13 @@
                   <h5 id="ClientefechaNacimiento">Fecha de nacimiento: <?php echo $fecha_nacimiento; ?>
                   <h5 id="Clientedireccion">Direccion: <?php echo $direccion; ?>
                   <h5 id="Clientetelefono">Telefono: <?php echo $telefono; ?>
-                  
                 </div>
               </div>
             </div>
 
             <br>
 
-    <form class="form-horizontal" id="clienteDetalle" action="modificarcliente.php" method="POST" enctype="multipart/form-data">
+    <form class="form-horizontal" id="clienteDetalle" action="guardarModificacionCliente.php" method="POST" enctype="multipart/form-data">
       <!-- Text input-->
       <div class="form-group">
         <label class="col-md-4 control-label" for="telefono">Telefono</label>
@@ -142,6 +121,14 @@
 
       <!-- Text input-->
       <div class="form-group">
+        <label class="col-md-4 control-label" for="profesion">Profesión</label>
+        <div class="col-md-5">
+          <input id="profesion" name="profesion" value="<?php echo $_GET['profesion'];?>" class="form-control input-md" type="text">
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
         <label class="col-md-4 control-label" for="observaciones">Observaciones</label>
         <div class="col-md-5">
           <textarea id="observaciones" name="observaciones" class="form-control"><?php echo $_GET['observaciones'];?></textarea>
@@ -155,8 +142,8 @@
              require_once 'Conexion.php';
              $conn = new Conexion();
              $dui = $_GET['dui'];
-             $stmn = "SELECT COUNT(correlativo) FROM documentos WHERE dui = '" . $dui . "'";
-             $stmn2 = "SELECT descripcion FROM documentos WHERE dui = '" . $dui . "'";
+             $stmn = "SELECT COUNT(correlativo) FROM documento WHERE DUI = '" . $dui . "'";
+             $stmn2 = "SELECT descripcion FROM documento WHERE DUI = '" . $dui . "'";
              $descripcionesImagen = array();
              $resultado2 = $conn->execQueryO($stmn2);
              while ($documentos = $resultado2->fetch_assoc()) {

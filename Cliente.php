@@ -1,17 +1,17 @@
 <?php
 class Cliente {
   public $dui;
-  public $nombre;
+  public $documentos;
+  public $nit;
+  public $nombres;
   public $apellidos;
   public $sexo;
-  public $nit;
+  public $direccion;
+  public $telefono;
   public $fecha_nacimiento;
   public $observaciones;
-  public $direccion;
-  public $telefonos;
   public $profesion;
-  public $documentos;
-
+  
 
   //get
   function getDui() {
@@ -26,8 +26,8 @@ class Cliente {
       return $this->nit;
   }
 
-  function getNombre() {
-      return $this->nombre;
+  function getNombres() {
+      return $this->nombres;
   }
 
   function getApellidos() {
@@ -42,8 +42,8 @@ class Cliente {
       return $this->direccion;
   }
 
-  function getTelefonos() {
-      return $this->telefonos;
+  function getTelefono() {
+      return $this->telefono;
   }
 
   function getFecha_nacimiento() {
@@ -54,8 +54,8 @@ class Cliente {
       return $this->observaciones;
   }
 
-  function getProfesion(){
-    return $this->profesion;
+  function getProfesion() {
+      return $this->profesion;
   }
 
   //set
@@ -71,8 +71,8 @@ class Cliente {
       $this->nit = $nit;
   }
 
-  function setNombre($nombre) {
-      $this->nombre = $nombre;
+  function setNombres($nombres) {
+      $this->nombres = $nombres;
   }
 
   function setApellidos($apellidos) {
@@ -87,8 +87,8 @@ class Cliente {
       $this->direccion = $direccion;
   }
 
-  function setTelefonos($telefonos) {
-      $this->telefonos = $telefonos;
+  function setTelefono($telefono) {
+      $this->telefono = $telefono;
   }
 
   function setFecha_nacimiento($fecha_nacimiento) {
@@ -98,8 +98,8 @@ class Cliente {
   function setObservaciones($observaciones) {
       $this->observaciones = $observaciones;
   }
-
-  function setProfesion($profesion){
-    $this->profesion = $profesion;
+  
+  function setProfesion($profesion) {
+      $this->profesion = $profesion;
   }
 }

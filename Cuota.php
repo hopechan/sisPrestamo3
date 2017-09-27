@@ -9,6 +9,7 @@ class Cuota {
    var $saldo_anterior;
    var $saldo_actualizado;
    var $mora;
+   
    function calcularCuota(){
        try {
             if (isset($valor) && isset($saldo_anterior)) {

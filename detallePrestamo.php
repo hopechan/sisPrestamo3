@@ -44,32 +44,12 @@
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="webcliente.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Clientes</a>
+                            <a href="webClientes.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Clientes</a>
                         </li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="webprestamo.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt"></span> Prestamos</a>
-                        </li>
-                    </ul>
-		    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="reporteEstadosFinancieros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-usd"></span> Estados Financieros</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webparametros.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-wrench"></span> Configuración</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webUsuarios.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Usuarios</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li>
-                            <a href="webBitacora.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-calendar"></span> Bitacora</a>
+                            <a href="webPrestamos.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt"></span> Prestamos</a>
                         </li>
                     </ul>
                 </div>

@@ -5,7 +5,6 @@
         <title>Sistema Préstamos</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/dashboard.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/buscarPrestamos.js"></script>
@@ -18,9 +17,9 @@
                 </div>
             </div>
         </nav>
-        <div><img src="font/avatar.png" width=178 height="178" vspace="10" hspace="560" alt="imagen avatar"></div>
-        <br>
-        <form class="form-horizontal" method="POST" action="index.php" data-toggle="validator" role="form">
+        <form class="form-horizontal" method="POST" action="index.php">
+          <fieldset>
+            <br><br>
         <div class="form-group">
           <label class="col-md-4 control-label" for="Usuario">Usuario</label>
           <div class="col-md-4">
@@ -37,8 +36,10 @@
           <label class="col-md-4 control-label" for="login"></label>
             <div class="col-md-8">
               <button id="login" name="login" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
+              <button id="limpiar" name="limpiar" class="btn btn-danger">Cancelar</button>
             </div>
           </div>
+        </fieldset>
       </form>
     </body>
     </html>
