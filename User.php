@@ -42,7 +42,7 @@ Class User {
     function setUsername($username) {
         $this->username = $username;
     }
-    
+
     function setNombres($nombres) {
         $this->nombres = $nombres;
     }
@@ -62,7 +62,7 @@ Class User {
     function obtenerTodos() {
         $conn = new Conexion();
         //Adaptarla de acuerdo a la base de datos
-        $stmn = "SELECT ID_usuario, login, Nombre, Apellidos, rol FROM usuario";
+        $stmn = "SELECT ID_usuario, login, Nombre, Apellidos, rol FROM Usuario";
         $resultado = $conn->execQueryO($stmn);
         $Users = array();
         while($user = $resultado->fetch_assoc()) {
@@ -81,7 +81,34 @@ Class User {
         return $Users;
     }
 
-    function  createNewUser () {
+    function buscarUsuario($userName, $password){
+      $c = new Conexion();
+      $stmn = "SELECT * FROM Usuario WHERE login = '" . $userName . "'";
+      $resultado = $c->execQueryO($stmn);
+      //Capturo el numero de filas de la consulta
+      $num = $resultado->num_rows;
+      //Se supone que el campo login es unico asi que las dos opciones posibles son 0 y 1 :v
+      if ($num == 1) {
+        //Si existe coindencia lo guarda
+        $coindencia = array();
+        while ($user = $resultado->fetch_assoc()) {
+          $us = new User();
+          $us->setId_user($user['ID_usuario']);
+          $us->setUsername($user['login']);
+          $us->setNombres($user['Nombre']);
+          $us->setApellidos($user['Apellidos']);
+          $us->setPassword($user['clave']);
+          $us->setUserType($user['rol']);
+          array_push($coindencia, $us);
+        }
+        return $coindencia;
+      } else {
+        echo '<script type="text/javascript">
+        alert("El usuario no existe");
+        window.location="login.php";
+        </script>';
+;
+      }
+    }
 
-    }    
 }

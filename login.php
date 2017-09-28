@@ -17,13 +17,13 @@
                 </div>
             </div>
         </nav>
-        <form class="form-horizontal" method="POST" action="index.php">
+        <form class="form-horizontal" method="POST" action="autorizar.php">
           <fieldset>
             <br><br>
         <div class="form-group">
           <label class="col-md-4 control-label" for="Usuario">Usuario</label>
           <div class="col-md-4">
-            <input id="Usuario" name="Usuario" type="text" placeholder="Ingrese nombre de usuario" class="form-control input-md" required="">
+            <input id="user" name="user" type="text" placeholder="Ingrese nombre de usuario" class="form-control input-md" required="">
           </div>
         </div>
         <div class="form-group">
