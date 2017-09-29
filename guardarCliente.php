@@ -3,11 +3,15 @@ require_once 'Conexion.php';
 require_once 'Cliente.php';
 require_once 'Documento.php';
 require_once 'ControladorCliente.php';
-
+require_once 'Bitacora.php';
+session_start();
 
         $conn = new Conexion();
         $c = new Cliente();
         $cCliente = new ControladorCliente();
+        //Objetos bitacora
+        $b = new Bitacora();
+        $controladorBitacora = new Bitacora();
 
             $c->setDui($_POST['dui']);
             $c->setNit($_POST['nit']);
@@ -26,7 +30,7 @@ require_once 'ControladorCliente.php';
             $contained_binary = addslashes(fread(fopen($tmp_name,"rb"), $_FILES['imagen']['size']));
             $binary_name = $_FILES['imagen']['name'];
 
-            $stmn2 = "SELECT MAX(correlativo) FROM documento WHERE DUI='" . $_POST['dui'] . "'";
+            $stmn2 = "SELECT MAX(correlativo) FROM Documento WHERE DUI='" . $_POST['dui'] . "'";
             $resultado = $conn->execQueryO($stmn2);
             $max_correlativo = $resultado->fetch_assoc();
             $correlativo = $max_correlativo['MAX(correlativo)'] + 1;
@@ -44,7 +48,16 @@ require_once 'ControladorCliente.php';
             $c->setDocumentos($d);
 
             $cCliente->agregar($c);
+            //guarda la accion en la bitacora
+            $accion = "El usuario ".$_SESSION["userName"]." creo el cliente con dui: " . $_POST['dui'];
+            $id_bitacora = $controladorBitacora->maxID($_SESSION["id_usuario"]);
+            $b->setId_bitacora($id_bitacora);
+            $b->setId_usuario($_SESSION["id_usuario"]);
+            $b->setFecha(date('Y-m-d h:i:s'));
+            $b->setAccion($accion);
+            $controladorBitacora->agregar($b);
+
             echo '<script type="text/javascript">
                   alert("Cliente Guardado");
-                  window.location="webcliente.php";
+                  window.location="webClientes.php";
                   </script>';

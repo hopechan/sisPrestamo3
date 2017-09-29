@@ -1,6 +1,7 @@
 <?php
 require_once 'Parametro.php';
-
+require_once 'Bitacora.php';
+session_start();
 $nombre_empresa = $_POST['nombre_empresa'];
 $correo = $_POST['email'];
 $telefono = $_POST['telefono'];
@@ -56,5 +57,16 @@ array_push($Parametro, $par6);
 for ($i = 0; $i<7; $i++) {
 	$par0->modificar($Parametro[$i]);
 }
+//Objetos bitacora
+$b = new Bitacora();
+$controladorBitacora = new Bitacora();
+//guarda la accion en la bitacora
+$accion = "El usuario ".$_SESSION["userName"]. " modifico los parametros del sistema";
+$id_bitacora = $controladorBitacora->maxID($_SESSION["id_usuario"]);
+$b->setId_bitacora($id_bitacora);
+$b->setId_usuario($_SESSION["id_usuario"]);
+$b->setFecha(date('Y-m-d h:i:s'));
+$b->setAccion($accion);
+$controladorBitacora->agregar($b);
 
 header("Location:webprestamo.php");

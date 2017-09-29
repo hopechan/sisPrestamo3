@@ -3,9 +3,11 @@
 require_once 'Prestamo.php';
 require_once 'Cuota.php';
 require_once 'Conexion.php';
+require_once 'Bitacora.php';
+session_start();
 
  $conn = new Conexion();
- $stmn =  "SELECT MAX(num_cuota) FROM cuota WHERE ID_prestamo='" . $_POST['id_prestamo'] . "'";
+ $stmn =  "SELECT MAX(num_cuota) FROM Cuota WHERE ID_prestamo='" . $_POST['id_prestamo'] . "'";
  $resultado = $conn->execQueryO($stmn);
  $max_cuota = $resultado->fetch_assoc();
  $num_cuota = $max_cuota['MAX(num_cuota)'] + 1;
@@ -30,8 +32,20 @@ $c = new Cuota();
   }
   else {
    $p->agregarCuota($c);
+   //Objetos bitacora
+   $b = new Bitacora();
+   $controladorBitacora = new Bitacora();
+   //guarda la accion en la bitacora
+   $accion = "El usuario ".$_SESSION["userName"]." realizo un pago al prestamo # " . $_POST['id_prestamo'];
+   $id_bitacora = $controladorBitacora->maxID($_SESSION["id_usuario"]);
+   $b->setId_bitacora($id_bitacora);
+   $b->setId_usuario($_SESSION["id_usuario"]);
+   $b->setFecha(date('Y-m-d h:i:s'));
+   $b->setAccion($accion);
+   $controladorBitacora->agregar($b);
+
    echo '<script type="text/javascript">
                   alert("Pago realizado exitosamente");
-                  window.location="webprestamo.php";
+                  window.location="webPrestamos.php";
                   </script>';
   }

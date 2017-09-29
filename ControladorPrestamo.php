@@ -76,7 +76,7 @@ class ControladorPrestamo {
               while ($cuota = $resultado3->fetch_assoc()) {
                 //Se crea y llena un objeto cuota ($cu) con los datos correspondientes
                 $cu = new Cuota();
-                $cu->setId_prestamo($cuota['id_prestamo']);
+                $cu->setId_prestamo($cuota['ID_prestamo']);
                 $cu->setNum_cuota($cuota['num_cuota']);
                 $cu->setValor($cuota['valor']);
                 $cu->setMora($cuota['mora']);

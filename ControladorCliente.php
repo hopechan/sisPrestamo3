@@ -1,7 +1,7 @@
 <?php
 require_once 'Conexion.php';
 require_once 'Cliente.php';
-
+session_start();
 class ControladorCliente {
     public function agregar(Cliente $c){
        try {
@@ -108,17 +108,29 @@ class ControladorCliente {
             if(isset($bandera)) {
                 echo '<script type="text/javascript">
                   alert("El cliente tiene préstamos asignados");
-                  window.location="webcliente.php";
+                  window.location="webClientes.php";
                   </script>';
             }
             else {
                 $stmn = "DELETE FROM Cliente WHERE DUI='". $c->getDui() ."'";
-                $stmn2 = "DELETE FROM documentos WHERE DUI='" . $c->getDui() . "'";
+                $stmn2 = "DELETE FROM Documentos WHERE DUI='" . $c->getDui() . "'";
                 $conn->execQuery($stmn2);
                 $conn->execQuery($stmn);
+                //Objetos bitacora
+                $b = new Bitacora();
+                $controladorBitacora = new Bitacora();
+                //guarda la accion en la bitacora
+                $accion = "El usuario ".$_SESSION["userName"]." elimino al cliente: " . $_['dui'];
+                $id_bitacora = $controladorBitacora->maxID($_SESSION["id_usuario"]);
+                $b->setId_bitacora($id_bitacora);
+                $b->setId_usuario($_SESSION["id_usuario"]);
+                $b->setFecha(date('Y-m-d h:i:s'));
+                $b->setAccion($accion);
+                $controladorBitacora->agregar($b);
+
                 echo '<script type="text/javascript">
                   alert("Cliente eliminado");
-                  window.location="webcliente.php";
+                  window.location="webClientes.php";
                   </script>';
             }
         } catch (ErrorPrestamo $e) {

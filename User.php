@@ -1,7 +1,5 @@
 <?php
-
 require_once 'Conexion.php';
-
 Class User {
     public $id_user;
     public $username;

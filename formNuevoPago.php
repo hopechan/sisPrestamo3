@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include 'seguridad.php'; ?>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,11 +24,11 @@
           $num_cuota = $_GET['cantidad_cuotas'];
           $valor_cuota = $_GET['valor_cuota'];
 
-          $stmn = "SELECT * FROM prestamo WHERE ID_prestamo = '" . $_GET['id_prestamo'] . "'";
+          $stmn = "SELECT * FROM Prestamo WHERE ID_prestamo = '" . $_GET['id_prestamo'] . "'";
           $resultado = $conn->execQueryO($stmn);
           $prestamo = $resultado->fetch_assoc();
 
-          $stmn2 = "SELECT MAX(num_cuota) FROM cuota WHERE ID_prestamo='" . $_GET['id_prestamo'] . "'";
+          $stmn2 = "SELECT MAX(num_cuota) FROM Cuota WHERE ID_prestamo='" . $_GET['id_prestamo'] . "'";
           $resultado2 = $conn->execQueryO($stmn2);
           $max_cuota = $resultado2->fetch_assoc();
           $cu = $max_cuota['MAX(num_cuota)'] + 1;
@@ -49,7 +50,7 @@
                     <a class="navbar-brand" href="#">SISTEMA PRÉSTAMOS</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+                  <li><a href="logout.php"><?php echo $_SESSION["NombreCompleto"]. " "; ?><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
                 </ul>
             </div>
         </nav>

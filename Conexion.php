@@ -7,7 +7,7 @@ Class Conexion {
 
     function execQuery($stmn) {
     	$mysqli = new mysqli($this->host, $this->username, $this->password, $this->database);
-        $mysqli->query($stmn);
+        return $mysqli->query($stmn);
     }
 
     function execQueryO($stmn) {
