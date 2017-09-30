@@ -65,7 +65,6 @@ Class User {
         $Users = array();
         while($user = $resultado->fetch_assoc()) {
             $u = new User();
-
             $u->setId_user($user['ID_usuario']);
             $u->setUsername($user['login']);
             $u->setNombres($user['Nombre']);
@@ -73,7 +72,6 @@ Class User {
             $u->setUserType($user['rol']);
             array_push($Users, $u);
         }
-
         $conn = null;
 
         return $Users;
@@ -87,7 +85,7 @@ Class User {
       $num = $resultado->num_rows;
       //Se supone que el campo login es unico asi que las dos opciones posibles son 0 y 1 :v
       if ($num == 1) {
-        //Si existe coindencia lo guarda
+        //Si existe coindencia lo guarda en un array
         $coindencia = array();
         while ($user = $resultado->fetch_assoc()) {
           $us = new User();
@@ -105,7 +103,6 @@ Class User {
         alert("El usuario no existe");
         window.location="login.php";
         </script>';
-;
       }
     }
 

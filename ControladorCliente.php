@@ -1,7 +1,6 @@
 <?php
 require_once 'Conexion.php';
 require_once 'Cliente.php';
-session_start();
 class ControladorCliente {
     public function agregar(Cliente $c){
        try {

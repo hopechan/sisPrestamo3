@@ -1,4 +1,3 @@
-<?php include 'seguridad.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,6 +10,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/buscarCliente.js"></script>
     </head>
+    <?php include 'seguridad.php'; ?>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
