@@ -36,7 +36,6 @@
           <label class="col-md-4 control-label" for="login"></label>
             <div class="col-md-8">
               <button id="login" name="login" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
-              <button id="limpiar" name="limpiar" class="btn btn-danger">Cancelar</button>
             </div>
           </div>
         </fieldset>

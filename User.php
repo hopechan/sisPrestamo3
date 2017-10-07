@@ -59,7 +59,6 @@ Class User {
 
     function obtenerTodos() {
         $conn = new Conexion();
-        //Adaptarla de acuerdo a la base de datos
         $stmn = "SELECT ID_usuario, login, Nombre, Apellidos, rol FROM Usuario";
         $resultado = $conn->execQueryO($stmn);
         $Users = array();
@@ -105,5 +104,4 @@ Class User {
         </script>';
       }
     }
-
 }
