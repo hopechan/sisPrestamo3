@@ -1,6 +1,8 @@
 <?php
 require_once 'Conexion.php';
 require_once 'Cliente.php';
+require_once 'Bitacora.php';
+
 class ControladorCliente {
     public function agregar(Cliente $c){
        try {
@@ -119,7 +121,7 @@ class ControladorCliente {
                 $b = new Bitacora();
                 $controladorBitacora = new Bitacora();
                 //guarda la accion en la bitacora
-                $accion = "El usuario ".$_SESSION["userName"]." elimino al cliente: " . $_['dui'];
+                $accion = "El usuario ".$_SESSION["userName"]." elimino al cliente: " . $_GET['dui'];
                 $id_bitacora = $controladorBitacora->maxID($_SESSION["id_usuario"]);
                 $b->setId_bitacora($id_bitacora);
                 $b->setId_usuario($_SESSION["id_usuario"]);
