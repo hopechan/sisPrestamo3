@@ -112,7 +112,7 @@ class ControladorCliente {
             }
             else {
                 $stmn = "DELETE FROM Cliente WHERE DUI='". $c->getDui() ."'";
-                $stmn2 = "DELETE FROM Documentos WHERE DUI='" . $c->getDui() . "'";
+                $stmn2 = "DELETE FROM documento WHERE DUI='" . $c->getDui() . "'";
                 $conn->execQuery($stmn2);
                 $conn->execQuery($stmn);
                 //Objetos bitacora
