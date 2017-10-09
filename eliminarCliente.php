@@ -2,6 +2,8 @@
 require_once "ControladorCliente.php";
 require_once "Cliente.php";
 
+session_start();
+
 $c = new Cliente();
 $cCliente = new ControladorCliente();
 
