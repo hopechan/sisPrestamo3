@@ -30,16 +30,11 @@ session_start();
             $contained_binary = addslashes(fread(fopen($tmp_name,"rb"), $_FILES['imagen']['size']));
             $binary_name = $_FILES['imagen']['name'];
 
-            $stmn2 = "SELECT MAX(correlativo) FROM Documento WHERE DUI='" . $_POST['dui'] . "'";
-            $resultado = $conn->execQueryO($stmn2);
-            $max_correlativo = $resultado->fetch_assoc();
-            $correlativo = $max_correlativo['MAX(correlativo)'] + 1;
-
             $d = new Documento();
             if(strpos($tipo_archivo, "jpeg") || strpos($tipo_archivo, "jpg") || strpos($tipo_archivo, "png")) {
 
                 $d->setDui($_POST['dui']);
-                $d->setCorrelativo($correlativo);
+                $d->setCorrelativo(1);
                 $d->setNombre($binary_name);
                 $d->setArchivo($contained_binary);
                 $d->setDescripcion($_POST['descripcionImagen']);
