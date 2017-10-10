@@ -26,11 +26,12 @@ class ControladorCliente {
         $archivo = $documentos->getArchivo();
         $descripcion = $documentos->getDescripcion();
 
+        $conn->execQuery($stmn)
+            
         if (!(empty($nombre))) {
             $stmn2  = "INSERT INTO Documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
             $conn->execQuery($stmn2);
         }
-        $conn->execQuery($stmn);
 
         } catch (ErrorPrestamo $e) {
           echo $e->nuevo();
