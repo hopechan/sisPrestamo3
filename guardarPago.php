@@ -11,7 +11,7 @@ session_start();
  $resultado = $conn->execQueryO($stmn);
  $max_cuota = $resultado->fetch_assoc();
  $num_cuota = $max_cuota['MAX(num_cuota)'] + 1;
-
+ $usuario = $_SESSION['userName'];
 $c = new Cuota();
   $c->setId_prestamo($_POST['id_prestamo']);
   $c->setNum_cuota($num_cuota);
@@ -32,6 +32,7 @@ $c = new Cuota();
   }
   else {
    $p->agregarCuota($c);
+   $p->imprimir($c, $usuario);
    //Objetos bitacora
    $b = new Bitacora();
    $controladorBitacora = new Bitacora();

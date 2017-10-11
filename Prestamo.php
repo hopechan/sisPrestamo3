@@ -1,7 +1,11 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
 require_once 'Cliente.php';
 require_once 'Cuota.php';
 require_once 'Conexion.php';
+require_once 'Parametro.php';
+use Mike42\Escpos\Printer;
+use Mike42\Escpos\PrintConnectors\CupsPrintConnector;
 
 class Prestamo {
     var $id_prestamo;
@@ -57,6 +61,50 @@ class Prestamo {
         } catch (ErrorPrestamo $e) {
             echo $e->nuevo($titulo, $ubicacion, $mensaje);
         }
+    }
+
+    function imprimir(Cuota $c, $usuario){
+      //Variables
+      $id_prestamo = $c->getId_prestamo();
+      $num_cuota = $c->getNum_cuota();
+      $valor = $c->getValor();
+      $interes = $c->getInteres();
+      $fecha = $c->getFecha();
+      $capital = $c->getCapital();
+      $saldo_anterior = $c->getSaldo_anterior();
+      $saldo_actualizado = $c->getSaldo_actualizado();
+      $mora = $c->getMora();
+      //Nombre con el que configure la impreso en CUPS
+      $connector = new CupsPrintConnector("impresora_DSI2");
+      $printer = new Printer($connector);
+      $fechaPago = date('d-m-Y');
+      $horaPago = date('h:i:s');
+      $Parametro = $par->obtener();
+        $nombre_empresa =  $Parametro[0]->valor;
+        $direccion = $Parametro[6]->valor;
+        $telefono = $Parametro[2]->valor;
+
+      //Impresion
+      $printer->setEmphasis(true);
+      $printer->text($nombre_empresa . "\n");
+      $printer->text($direccion . "\n");
+      $printer->text("Telefono: " . $telefono . "\n");
+      $printer->text("Cajero: " . $usuario . "\n");
+      $printer->setEmphasis(false);
+      $printer->feed();
+      $printer->text("Pago efectuado el: ".$fechaPago . "\n");
+      $printer->text("a las: " .$horaPago ."\n");
+      $printer->text("----------------------------\n");
+      $printer->setEmphasis(true);
+      $printer->text("Pago:          $". $valor . "\n");
+      $printer->text("Mora:          $" .$mora . "\n");
+      $printer->text("----------------------------\n");
+      $printer->text("Total a pagar: $" .$valor + $mora . "\n");
+      $printer->text("----------------------------\n");
+      $printer->text("Nuevo Saldo:   $". $nuevo_actualizado . "\n");
+      $printer->feed(4);
+      $printer->cut();
+      $printer->close();
     }
 
     //GET
