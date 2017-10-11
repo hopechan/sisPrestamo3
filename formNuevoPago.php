@@ -90,8 +90,8 @@
           </div>
         </div>
         <br>
-
-        <form class="form-horizontal" action="guardarPago.php" method="POST">
+        <!-- Cambie el action para probar la impresion-->
+        <form class="form-horizontal" action="imprimir.php" method="POST">
 
         <div class="form-group" >
           <label class="control-label col-md-4" for="cuota" id="labelCuota">Valor de la cuota</label>
@@ -135,7 +135,9 @@
         </div>
 
         <div class="form-group" align="center">
-        <button id="registrarPago" type="submit" name="registrarPago" class="btn btn-primary">Registrar Pago</button>
+        <!--<button id="registrarPago" type="submit" name="registrarPago" class="btn btn-primary">Registrar Pago</button>-->
+        <!-- Deshabilite el boton de registrar pago para probar la impresion -->
+        <button id="imprimir" type="submit" name="imprimir" class="btn btn-primary">Imprimir</button>
         </div>
 
         <!-- Estos input deben estar text -->

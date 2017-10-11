@@ -23,7 +23,7 @@ class ControladorPrestamo {
           $observaciones = $p->getObservaciones();
           $capitalizacion = $p->getCapitalizacion();
 
-          $stmn = "INSERT INTO Prestamo(ID_prestamo, DUI, Monto, valor_cuota, tasa_interes, tasa_mora, cantidad_cuotas, fecha_inicio, fecha_fin,fecha_ultimo_pago, saldo, estado, observaciones, capitalizacion) values('" . $id_prestamo . "', '" . $cliente->dui . "', '" . $monto . "', '" . $valor_cuota . "', '" . $tasa_interes . "', '" . $tasa_mora . "', '" . $cantidad_cuotas . "', '" . $fecha_inicio . "', '" . $fecha_fin . "', '" . $fecha_ultimo_pago . "', '" . $saldo . "', '" . $estado . "', '" . $observaciones . "', '". $capitalizacion. "')";
+          $stmn = "INSERT INTO prestamo(ID_prestamo, DUI, Monto, valor_cuota, tasa_interes, tasa_mora, cantidad_cuotas, fecha_inicio, fecha_fin,fecha_ultimo_pago, saldo, estado, observaciones, capitalizacion) values('" . $id_prestamo . "', '" . $cliente->dui . "', '" . $monto . "', '" . $valor_cuota . "', '" . $tasa_interes . "', '" . $tasa_mora . "', '" . $cantidad_cuotas . "', '" . $fecha_inicio . "', '" . $fecha_fin . "', '" . $fecha_ultimo_pago . "', '" . $saldo . "', '" . $estado . "', '" . $observaciones . "', '". $capitalizacion. "')";
           $conn->execQuery($stmn);
         } catch (ErrorPrestamo $e) {
             echo $e->nuevo();
@@ -33,14 +33,14 @@ class ControladorPrestamo {
     public function obtenerPorId($id_prestamo){
         try {
           $conn = new Conexion();
-          $stmn = "SELECT * FROM Prestamo WHERE ID_prestamo = '" . $id_prestamo . "'";
+          $stmn = "SELECT * FROM prestamo WHERE ID_prestamo = '" . $id_prestamo . "'";
           $resultado = $conn->execQueryO($stmn);
           $Prestamo = array();
            while ($prestamos = $resultado->fetch_assoc()) {
              $p = new Prestamo();
              $p->setId_prestamo($prestamos['ID_prestamo']);
 
-             $stmn2 = "SELECT * FROM Cliente WHERE DUI = '" . $prestamos['DUI'] . "'";
+             $stmn2 = "SELECT * FROM cliente WHERE DUI = '" . $prestamos['DUI'] . "'";
              $resultado2 = $conn->execQueryO($stmn2);
 
              $c = new Cliente();
@@ -70,7 +70,7 @@ class ControladorPrestamo {
              $p->setCapitalizacion($prestamos['capitalizacion']);
              $p->setTasa_mora($prestamos['tasa_mora']);
 
-             $stmn3="SELECT * FROM Cuota where ID_prestamo = " . $prestamos['ID_prestamo'];
+             $stmn3="SELECT * FROM cuota where ID_prestamo = " . $prestamos['ID_prestamo'];
              $resultado3 = $conn->execQueryO($stmn3);
              $cuotas = array();
               while ($cuota = $resultado3->fetch_assoc()) {
@@ -102,14 +102,14 @@ class ControladorPrestamo {
     public function obtenerActivos(){
         try {
           $conn = new Conexion();
-          $stmn = "SELECT * FROM Prestamo WHERE estado = 'A'";
+          $stmn = "SELECT * FROM prestamo WHERE estado = 'A'";
           $resultado = $conn->execQueryO($stmn);
           $Prestamo = array();
            while ($prestamos = $resultado->fetch_assoc()) {
              $p = new Prestamo();
              $p->setId_prestamo($prestamos['ID_prestamo']);
 
-             $stmn2 = "SELECT * FROM Cliente WHERE DUI = '" . $prestamos['DUI'] . "'";
+             $stmn2 = "SELECT * FROM cliente WHERE DUI = '" . $prestamos['DUI'] . "'";
              $resultado2 = $conn->execQueryO($stmn2);
 
              $c = new Cliente();
@@ -139,7 +139,7 @@ class ControladorPrestamo {
              $p->setCapitalizacion($prestamos['capitalizacion']);
              $p->setTasa_mora($prestamos['tasa_mora']);
 
-             $stmn3="SELECT * FROM Cuota where ID_prestamo = " . $prestamos['ID_prestamo'];
+             $stmn3="SELECT * FROM cuota where ID_prestamo = " . $prestamos['ID_prestamo'];
              $resultado3 = $conn->execQueryO($stmn3);
              $cuotas = array();
               while ($cuota = $resultado3->fetch_assoc()) {
@@ -171,14 +171,14 @@ class ControladorPrestamo {
     public function obtenerInactivos(){
         try {
           $conn = new Conexion();
-          $stmn = "SELECT * FROM Prestamo WHERE estado = 'I'";
+          $stmn = "SELECT * FROM prestamo WHERE estado = 'I'";
           $resultado = $conn->execQueryO($stmn);
           $Prestamo = array();
            while ($prestamos = $resultado->fetch_assoc()) {
              $p = new Prestamo();
              $p->setId_prestamo($prestamos['ID_prestamo']);
 
-             $stmn2 = "SELECT * FROM Cliente WHERE DUI = '" . $prestamos['DUI'] . "'";
+             $stmn2 = "SELECT * FROM cliente WHERE DUI = '" . $prestamos['DUI'] . "'";
              $resultado2 = $conn->execQueryO($stmn2);
 
              $c = new Cliente();
@@ -208,7 +208,7 @@ class ControladorPrestamo {
              $p->setCapitalizacion($prestamos['capitalizacion']);
              $p->setTasa_mora($prestamos['tasa_mora']);
 
-             $stmn3="SELECT * FROM Cuota where ID_prestamo = " . $prestamos['ID_prestamo'];
+             $stmn3="SELECT * FROM cuota where ID_prestamo = " . $prestamos['ID_prestamo'];
              $resultado3 = $conn->execQueryO($stmn3);
              $cuotas = array();
               while ($cuota = $resultado3->fetch_assoc()) {
@@ -241,7 +241,7 @@ class ControladorPrestamo {
         try {
 
           $conn = new Conexion();
-          $stmn = "SELECT * FROM Cliente  WHERE DUI LIKE '%" . $s . "%' OR Nombre LIKE '%" . $s . "%' OR Apellidos LIKE '%" . $s . "%'";
+          $stmn = "SELECT * FROM cliente  WHERE DUI LIKE '%" . $s . "%' OR Nombre LIKE '%" . $s . "%' OR Apellidos LIKE '%" . $s . "%'";
           $resultado = $conn->execQueryO($stmn);
           $Prestamo = array();
            while ($cliente = $resultado->fetch_assoc()) {
@@ -259,7 +259,7 @@ class ControladorPrestamo {
              $c->setProfesion($cliente['profesion']);
 
              //Busco todos los prestamos del cliente
-             $stmn2 = "SELECT * FROM Prestamo WHERE DUI = '" . $cliente['DUI'] . "'";
+             $stmn2 = "SELECT * FROM prestamo WHERE DUI = '" . $cliente['DUI'] . "'";
              $resultado2 = $conn->execQueryO($stmn2);
 
              $p = new Prestamo();
@@ -281,7 +281,7 @@ class ControladorPrestamo {
              $p->setTasa_mora($prestamos['tasa_mora']);
 
              //Busco las cuotas de los prestamos
-             $stmn3="SELECT * FROM Cuota where ID_prestamo = ". $prestamos['ID_prestamo'];
+             $stmn3="SELECT * FROM cuota where ID_prestamo = ". $prestamos['ID_prestamo'];
              $resultado3 = $conn->execQueryO($stmn3);
              $cuotas = array();
               while ($cuota = $resultado3->fetch_assoc()) {

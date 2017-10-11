@@ -1,2 +1,4 @@
 <?php
-echo date('Y-m-d h:i:s');
+fecha = date('Y-m-d h:i:s');
+echo fecha;
+?>

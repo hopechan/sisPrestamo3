@@ -44,6 +44,7 @@
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="container">
+            <div class= "alert alert-sucess" id="alerta" style="display:none;"><strong>Cliente guardado correctamente</strong></div>
             <h1 class="page-header">Clientes</h1>
             <div class="col-md-8">
                 <input type="text" class="form-control" name="busqueda" autocomplete="off" id="busqueda" onkeyup="buscar();" placeholder="Buscar...">

@@ -47,13 +47,13 @@ public $accion;
     $id_usuario = $b->getId_usuario();
     $fecha = $b->getFecha();
     $accion = $b->getAccion();
-    $stmn = "INSERT INTO Bitacora(ID_bitacora, ID_usuario, Fecha, Accion) VALUES ('" .$id_bitacora. "', '" . $id_usuario. "','" . $fecha . "', '" . $accion . "')";
+    $stmn = "INSERT INTO bitacora(ID_bitacora, ID_usuario, Fecha, Accion) VALUES ('" .$id_bitacora. "', '" . $id_usuario. "','" . $fecha . "', '" . $accion . "')";
     $c->execQuery($stmn);
   }
 
   function maxID($id_usuario){
     $c = new Conexion();
-    $stmn =  "SELECT MAX(ID_bitacora) FROM Bitacora WHERE ID_usuario='" . $id_usuario . "'";
+    $stmn =  "SELECT MAX(ID_bitacora) FROM bitacora WHERE ID_usuario='" . $id_usuario . "'";
     $resultado = $c->execQuery($stmn);
     $maxID = $resultado->fetch_assoc();
     $id_bitacora = $maxID['MAX(ID_bitacora)'] + 1;

@@ -59,7 +59,7 @@ Class User {
 
     function obtenerTodos() {
         $conn = new Conexion();
-        $stmn = "SELECT ID_usuario, login, Nombre, Apellidos, rol FROM Usuario";
+        $stmn = "SELECT ID_usuario, login, Nombre, Apellidos, rol FROM usuario";
         $resultado = $conn->execQueryO($stmn);
         $Users = array();
         while($user = $resultado->fetch_assoc()) {
@@ -78,7 +78,7 @@ Class User {
 
     function buscarUsuario($userName, $password){
       $c = new Conexion();
-      $stmn = "SELECT * FROM Usuario WHERE login = '" . $userName . "'";
+      $stmn = "SELECT * FROM usuario WHERE login = '" . $userName . "'";
       $resultado = $c->execQueryO($stmn);
       //Capturo el numero de filas de la consulta
       $num = $resultado->num_rows;

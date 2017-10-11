@@ -19,7 +19,7 @@ class ControladorCliente {
        $fecha_nacimiento = $c->getFecha_nacimiento();
        $observaciones = $c->getObservaciones();
        $profesion = $c->getProfesion();
-       $stmn = "INSERT INTO  Cliente(DUI, NIT, Nombre, Apellidos, Sexo, direccion, telefonos, fecha_nacimiento, observaciones, profesion) values('" . $dui . "', '" . $nit . "', '" . $nombres . "', '" . $apellidos . "', '" . $sexo . "', '" . $direccion . "', '" . $telefono . "', '" . $fecha_nacimiento . "', '" . $observaciones . "', '" . $profesion . "')";
+       $stmn = "INSERT INTO  cliente(DUI, NIT, Nombre, Apellidos, Sexo, direccion, telefonos, fecha_nacimiento, observaciones, profesion) values('" . $dui . "', '" . $nit . "', '" . $nombres . "', '" . $apellidos . "', '" . $sexo . "', '" . $direccion . "', '" . $telefono . "', '" . $fecha_nacimiento . "', '" . $observaciones . "', '" . $profesion . "')";
 
         $correlativo = $documentos->getCorrelativo();
         $nombre = $documentos->getNombre();
@@ -27,9 +27,9 @@ class ControladorCliente {
         $descripcion = $documentos->getDescripcion();
 
         $conn->execQuery($stmn)
-            
-        if (!(empty($nombre))) {
-            $stmn2  = "INSERT INTO Documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
+
+        if (!(empty($nombre)) {
+            $stmn2  = "INSERT INTO documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
             $conn->execQuery($stmn2);
         }
 
@@ -41,7 +41,7 @@ class ControladorCliente {
     public function obtener(){
         try {
             $conn = new Conexion();
-            $stmn = "SELECT * from Cliente";
+            $stmn = "SELECT * from cliente";
             $resultado = $conn->execQueryO($stmn);
             $Cliente = array();
             while ($cliente = $resultado->fetch_assoc()) {
@@ -73,7 +73,7 @@ class ControladorCliente {
     public function buscar($s){
             try {
                     $conn = new Conexion();
-                    $stmn = "SELECT * FROM Cliente WHERE DUI LIKE '%" . $s . "%' OR Nombre LIKE '%" . $s . "%' OR NIT LIKE '%" . $s . "%' OR Apellidos LIKE '%" . $s . "%'";
+                    $stmn = "SELECT * FROM cliente WHERE DUI LIKE '%" . $s . "%' OR Nombre LIKE '%" . $s . "%' OR NIT LIKE '%" . $s . "%' OR Apellidos LIKE '%" . $s . "%'";
                     $resultado = $conn->execQueryO($stmn);
                     $Cliente = array();
 
@@ -104,7 +104,7 @@ class ControladorCliente {
     public function eliminar(Cliente $c){
         try {
             $conn = new Conexion();
-            $stmn3 = "SELECT * FROM Prestamo WHERE DUI='" . $c->getDui() . "'";
+            $stmn3 = "SELECT * FROM prestamo WHERE DUI='" . $c->getDui() . "'";
             $resultado = $conn->execQueryO($stmn3);
             $bandera = $resultado->fetch_assoc();
             if(isset($bandera)) {
@@ -114,7 +114,7 @@ class ControladorCliente {
                   </script>';
             }
             else {
-                $stmn = "DELETE FROM Cliente WHERE DUI='". $c->getDui() ."'";
+                $stmn = "DELETE FROM cliente WHERE DUI='". $c->getDui() ."'";
                 $stmn2 = "DELETE FROM documento WHERE DUI='" . $c->getDui() . "'";
                 $conn->execQuery($stmn2);
                 $conn->execQuery($stmn);

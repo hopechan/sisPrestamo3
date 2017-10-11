@@ -63,6 +63,7 @@
               </ul>
             </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
             <form class="form-horizontal" enctype="multipart/form-data" action="guardarCliente.php" method="POST">
         <!-- Text input-->
         <div class="form-group">
