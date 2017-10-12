@@ -26,7 +26,7 @@ class ControladorCliente {
         $archivo = $documentos->getArchivo();
         $descripcion = $documentos->getDescripcion();
 
-        $conn->execQuery($stmn)
+        $conn->execQuery($stmn);
 
         if (!(empty($nombre)) {
             $stmn2  = "INSERT INTO documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
