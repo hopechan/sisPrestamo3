@@ -14,8 +14,6 @@ function comprobarPasswords() {
         document.getElementById("passwordAgain").style.borderColor="#ff0000";
         
     }
-
-    comprobarUsername();
 }
 
 function comprobarEspacios() {
@@ -45,9 +43,6 @@ function comprobarUsername() {
         } else {
             btnSaveUser.disabled = false;
             document.getElementById("username").style.borderColor=document.getElementById("userType").style.borderColor;
-            
-            //Comprueba las passwords de nuevo para evitar errores
-            comprobarPasswords();
         };
     });
 };
