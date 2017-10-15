@@ -35,7 +35,8 @@ $controladorUsuario = new User();
   $b->setFecha($fecha . " " . $hora);
   $b->setAccion($accion);
   $controladorBitacora->agregar($b);
+
   echo '<script type="text/javascript">
-  alert("Usuario creado exitosamente");
-  window.location="formNewUser.php";
-  </script>';
+      alert("Usuario creado exitosamente")
+      window.location="webUsers.php"
+      </script>';
