@@ -6,6 +6,7 @@
         <title>Sistema Préstamos</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/buscarCliente.js"></script>
@@ -18,7 +19,7 @@
                     <a class="navbar-brand" href="#">SISTEMA PRÉSTAMOS</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="logout.php"><?php echo $_SESSION["NombreCompleto"]. " "; ?><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+                  <li><a href="logout.php"><?php echo $_SESSION["NombreCompleto"]. " "; ?><i class="fa fa-sign-out"></i> Salir</a></li>
                 </ul>
             </div>
         </nav>
@@ -27,17 +28,17 @@
                 <div class="col-sm-3 col-md-2 sidebar" id="sidebar">
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="index.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home"></span> Principal</a>
+                            <a href="index.php" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Principal</a>
                         </li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="webClientes.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-user"></span> Clientes</a>
+                            <a href="webClientes.php" class="w3-bar-item w3-button"><i class="fa fa-user"></i> Clientes</a>
                         </li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li>
-                            <a href="webPrestamos.php" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-list-alt"></span> Prestamos</a>
+                            <a href="webPrestamos.php" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> Prestamos</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +50,7 @@
             <div class="col-md-8">
                 <input type="text" class="form-control" name="busqueda" autocomplete="off" id="busqueda" onkeyup="buscar();" placeholder="Buscar...">
             </div>
-            <a href="formNuevoCliente.php" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo cliente</a>
+            <a href="formNuevoCliente.php" class="btn btn-default"><i class="fa fa-plus"></i> Nuevo cliente</a>
         </div>
         <br>
         <table class="table table-condensed" id="resultadoBusqueda">
@@ -84,8 +85,8 @@
 	                echo '<td>' . $Cliente[$i]->telefono . '</td>';
                     echo '<td>' . $Cliente[$i]->fecha_nacimiento . '</td>';
                     echo '<td>' . $Cliente[$i]->profesion . '</td>';
-	                echo '<td>'.'<a href="detalleCliente.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombres.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefono.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&profesion=' . $Cliente[$i]->profesion . '&observaciones='.$Cliente[$i]->observaciones.'" data-toggle="tooltip" data-placement="bottom" title="Modificar"><button class="btn btn-sm btn-info"><i class="glyphicon glyphicon-eye-open"></i></button></a>';
-	                echo '<a href="eliminarCliente.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombres.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefono.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&observaciones='.$Cliente[$i]->observaciones.'&profesion='.$Cliente[$i]->profesion.'" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><button class="btn btn-sm btn-info" ><i class="glyphicon glyphicon-remove"></i></button></a></tr>';
+	                echo '<td>'.'<a href="detalleCliente.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombres.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefono.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&profesion=' . $Cliente[$i]->profesion . '&observaciones='.$Cliente[$i]->observaciones.'" data-toggle="tooltip" data-placement="bottom" title="Modificar"><button class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button></a>';
+	                echo '<a href="eliminarCliente.php?dui='.$Cliente[$i]->dui.'&nit='.$Cliente[$i]->nit.'&nombres='.$Cliente[$i]->nombres.'&apellidos='.$Cliente[$i]->apellidos.'&sexo='.$Cliente[$i]->sexo.'&direccion='.$Cliente[$i]->direccion.'&telefono='.$Cliente[$i]->telefono.'&fecha_nacimiento='.$Cliente[$i]->fecha_nacimiento.'&observaciones='.$Cliente[$i]->observaciones.'&profesion='.$Cliente[$i]->profesion.'" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><button class="btn btn-sm btn-info" ><i class="fa fa-remove"></i></button></a></tr>';
 	                echo '</tr>';
                 }
             ?>
