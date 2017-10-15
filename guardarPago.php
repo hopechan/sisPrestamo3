@@ -7,7 +7,7 @@ require_once 'Bitacora.php';
 session_start();
 
  $conn = new Conexion();
- $stmn =  "SELECT MAX(num_cuota) FROM Cuota WHERE ID_prestamo='" . $_POST['id_prestamo'] . "'";
+ $stmn =  "SELECT MAX(num_cuota) FROM cuota WHERE ID_prestamo='" . $_POST['id_prestamo'] . "'";
  $resultado = $conn->execQueryO($stmn);
  $max_cuota = $resultado->fetch_assoc();
  $num_cuota = $max_cuota['MAX(num_cuota)'] + 1;

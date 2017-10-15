@@ -10,7 +10,7 @@ $direccion = $_POST['direccion'];
 $observaciones = $_POST['observaciones'];
 $profesion = $_POST['profesion'];
 
-$stmn = "UPDATE Cliente SET telefonos = '" . $telefono . "', direccion = '" . $direccion . "', profesion = '" . $profesion . "',observaciones = '" . $observaciones . "' WHERE DUI = '" . $_POST['dui'] . "'";
+$stmn = "UPDATE cliente SET telefonos = '" . $telefono . "', direccion = '" . $direccion . "', profesion = '" . $profesion . "',observaciones = '" . $observaciones . "' WHERE DUI = '" . $_POST['dui'] . "'";
 $conn->execQuery($stmn);
 
 $tmp_name = $_FILES['imagen']['tmp_name'];
@@ -18,7 +18,7 @@ $tipo_archivo = $_FILES['imagen']['type'];
 
 $contained_binary = addslashes(fread(fopen($tmp_name,"rb"), $_FILES['imagen']['size']));
 $binary_name = $_FILES['imagen']['name'];
-$stmn2 = "SELECT MAX(correlativo) FROM Documento WHERE DUI='" . $_POST['dui'] . "'";
+$stmn2 = "SELECT MAX(correlativo) FROM documento WHERE DUI='" . $_POST['dui'] . "'";
 $resultado = $conn->execQueryO($stmn2);
 $max_correlativo = $resultado->fetch_assoc();
 $correlativo = $max_correlativo['MAX(correlativo)'] + 1;
@@ -39,7 +39,7 @@ $nombre = $d->getNombre();
 $archivo = $d->getArchivo();
 $descripcion = $d->getDescripcion();
 if (!(empty($nombre))) {
-	$stmn2  = "INSERT INTO Documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
+	$stmn2  = "INSERT INTO documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
 $conn->execQuery($stmn2);
 }
 

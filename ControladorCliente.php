@@ -28,10 +28,10 @@ class ControladorCliente {
 
         $conn->execQuery($stmn);
 
-        if (!(empty($nombre)) {
-            $stmn2  = "INSERT INTO documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
-            $conn->execQuery($stmn2);
-        }
+      //  if (!(empty($nombre)) {
+      //      $stmn2  = "INSERT INTO documento(DUI, correlativo, nombre_archivo, archivo, descripcion) values('" . $dui . "', '" . $correlativo . "','" . $nombre . "', '" . $archivo . "','" . $descripcion . "')";
+      //      $conn->execQuery($stmn2);
+      //  }
 
         } catch (ErrorPrestamo $e) {
           echo $e->nuevo();

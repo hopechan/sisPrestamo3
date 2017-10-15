@@ -34,7 +34,7 @@ class Parametro {
    //FUNCTIONS
    function obtener () {
    	  $conn = new Conexion();
-   	  $stmn = "SELECT * FROM Parametro";
+   	  $stmn = "SELECT * FROM parametro";
    	  $resultado = $conn->execQueryO($stmn);
 
    	  $Parametro = array();

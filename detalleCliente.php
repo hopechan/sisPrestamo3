@@ -144,8 +144,8 @@
              require_once 'Conexion.php';
              $conn = new Conexion();
              $dui = $_GET['dui'];
-             $stmn = "SELECT COUNT(correlativo) FROM Documento WHERE DUI = '" . $dui . "'";
-             $stmn2 = "SELECT descripcion FROM Documento WHERE DUI = '" . $dui . "'";
+             $stmn = "SELECT COUNT(correlativo) FROM documento WHERE DUI = '" . $dui . "'";
+             $stmn2 = "SELECT descripcion FROM documento WHERE DUI = '" . $dui . "'";
              $descripcionesImagen = array();
              $resultado2 = $conn->execQueryO($stmn2);
              while ($documentos = $resultado2->fetch_assoc()) {

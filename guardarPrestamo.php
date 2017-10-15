@@ -12,7 +12,7 @@
     $dui = $_POST['cliente'];
 
     $conn = new Conexion();
-    $stmn = "SELECT * FROM Cliente WHERE DUI = '" . $dui . "'";
+    $stmn = "SELECT * FROM cliente WHERE DUI = '" . $dui . "'";
     $resultado = $conn->execQueryO($stmn);
 
     $cliente = $resultado->fetch_assoc();
@@ -28,7 +28,7 @@
     $c->setObservaciones($cliente['observaciones']);
     $c->setProfesion($cliente['profesion']);
 
-    $stmn2 = "SELECT MAX(ID_prestamo) FROM Prestamo";
+    $stmn2 = "SELECT MAX(ID_prestamo) FROM prestamo";
     $resultado = $conn->execQueryO($stmn2);
     $max_id_prestamo = $resultado->fetch_assoc();
 
