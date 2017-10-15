@@ -7,7 +7,7 @@
         <title>Sistema Préstamos</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/dashboard.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.maskedinput.js" type="text/javascript"></script>

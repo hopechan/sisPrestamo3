@@ -1,0 +1,5 @@
+Yo, <Nombre> <Apellidos>, con Documento Único de Identidad número
+<DUI> y Número de Identificación Tributaria número <NIT>, de sexo <Sexo>, con domicilio en <direccion> y de profesión <profesion>, firmo el presente contrato para
+constatar que contraigo una obligación de préstamo con monto $<Monto> el día <fecha_inicio>, dicho préstamo tiene una
+tasa de interés de <tasa_interes>% y de mora del <tasa_mora>% y capitalización <capitalizacion>, con estas condiciones
+las cuotas serán de $<valor_cuota> y el préstamo se pagará en <cantidad_cuotas> cuotas.

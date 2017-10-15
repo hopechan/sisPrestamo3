@@ -51,9 +51,13 @@
                     <select id="cliente" name="cliente" class="form-control">
                       <?php
                         require_once "ControladorCliente.php";
+
                         $cCliente = new ControladorCliente();
+
                         $Cliente = $cCliente->obtener();
+
                         $numClientes = count($Cliente);
+
                         for ($i=0; $i < $numClientes; $i++) {
                           echo '<option value="' . $Cliente[$i]->dui . '">' . $Cliente[$i]->nombres . ' ' .$Cliente[$i]->apellidos ."</option>";
                         }
