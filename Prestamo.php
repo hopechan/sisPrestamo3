@@ -48,13 +48,13 @@ class Prestamo {
             $cuotas = array();
             array_push($cuotas, $c);
             $conn = new Conexion();
-            $stmn = "INSERT INTO Cuota(ID_prestamo, num_cuota, valor, interes, fecha, capital, saldo_anterior, saldo_actualizado, mora) VALUES ('".$id_prestamo."','".$num_cuota."', '".$valor."','".$interes."','".$fecha."','".$capital."','".$saldo_anterior."','".$saldo_actualizado."','".$mora."')";
+            $stmn = "INSERT INTO cuota(ID_prestamo, num_cuota, valor, interes, fecha, capital, saldo_anterior, saldo_actualizado, mora) VALUES ('".$id_prestamo."','".$num_cuota."', '".$valor."','".$interes."','".$fecha."','".$capital."','".$saldo_anterior."','".$saldo_actualizado."','".$mora."')";
             $conn->execQuery($stmn);
             if ($saldo_actualizado != 0) {
-                $stmn2 = "UPDATE Prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."', fecha_fin = '" . $fecha . "' WHERE id_prestamo='".$id_prestamo."'";
+                $stmn2 = "UPDATE prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."', fecha_fin = '" . $fecha . "' WHERE id_prestamo='".$id_prestamo."'";
                 $conn->execQuery($stmn2);
             } else {
-                $stmn2 = "UPDATE Prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."',estado = 'I', fecha_fin = '" . $fecha . "' WHERE id_prestamo='".$id_prestamo."'";
+                $stmn2 = "UPDATE prestamo SET fecha_ultimo_pago= '".$fecha."', saldo='".$saldo_actualizado."',estado = 'I', fecha_fin = '" . $fecha . "' WHERE id_prestamo='".$id_prestamo."'";
                 $conn->execQuery($stmn2);
             }
 

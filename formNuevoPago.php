@@ -73,6 +73,19 @@
                       <a href="webPrestamos.php" class="w3-bar-item w3-button"><span class="fa fa-list-alt"></span> Prestamos</a>
                   </li>
               </ul>
+              <?php if ($_SESSION['rol'] == "A") {
+                echo '<ul class="nav nav-sidebar">
+                  <li>
+                    <a href="webParametros.php" class="w3 bar-item w3-button"><i class="fa fa-cog"></i> Configuracion </a>
+                  </li>
+                </ul>
+                <ul class="nav nav-sidebar>"
+                  <li>
+                  <a href="webUsers.php" class="w3 bar-item w3-button"><i class="fa fa-users"></i> Usuarios </a>
+                  </li>
+                  </ul>';
+              }
+              ?>
             </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="container" id="panelInfo">
@@ -92,7 +105,7 @@
         </div>
         <br>
         <!-- Cambie el action para probar la impresion-->
-        <form class="form-horizontal" action="imprimir.php" method="POST">
+        <form class="form-horizontal" action="guardarPago.php" method="POST">
 
         <div class="form-group" >
           <label class="control-label col-md-4" for="cuota" id="labelCuota">Valor de la cuota</label>
