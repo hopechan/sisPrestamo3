@@ -1,4 +1,8 @@
-  <?php include 'seguridad.php'; ?>
+  <?php include 'seguridad.php';
+  if ($_SESSION['rol'] != 'A') {
+  	header("Location: index.php");
+  }
+  ?>
    <!DOCTYPE html>
        <head>
            <meta charset="UTF-8">
