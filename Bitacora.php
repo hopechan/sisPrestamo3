@@ -59,4 +59,23 @@ public $accion;
     $id_bitacora = $maxID['MAX(ID_bitacora)'] + 1;
     return $id_bitacora;
     }
+
+    function obtenerTodos() {
+        $conn = new Conexion();
+        $stmn = "SELECT * FROM bitacora";
+        $resultado = $conn->execQueryO($stmn);
+        $Bitacora = array();
+        while($bitacora = $resultado->fetch_assoc()) {
+            $b = new Bitacora();
+            $b->setId_bitacora($bitacora['ID_bitacora']);
+            $b->setId_usuario($bitacora['ID_usuario']);
+            $b->setFecha($bitacora['Fecha']);
+            $b->setAccion($bitacora['Accion']);
+            array_push($Bitacora, $b);
+        }
+        $conn = null;
+
+        return $Bitacora;
+    }
+
 }

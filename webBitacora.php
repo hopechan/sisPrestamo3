@@ -7,7 +7,7 @@ if ($_SESSION['rol'] != 'A') {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sistema Préstamos</title>
+        <title>Web Bitacora</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/dashboard.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -73,58 +73,39 @@ if ($_SESSION['rol'] != 'A') {
                 </div>
                  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                  <div class="container">
-                     <h1 class="page-header">Usuarios</h1>
+                     <h1 class="page-header">Bitacora</h1>
                      <div class="col-md-8">
                          <input type="text" class="form-control" name="busqueda" autocomplete="off" id="busqueda" onkeyup="buscar();" placeholder="Buscar...">
                      </div>
-                     <a href="formNewUser.php" class="btn btn-default"><i class="fa fa-plus"></i> Nuevo Usuario</a>
+                     <!--<a href="formNewUser.php" class="btn btn-default"><i class="fa fa-plus"></i> Nuevo Usuario</a>-->
                  </div>
                  <br>
-                 <table class="table table-condensed" id="tablaUsuario">
+                 <table class="table table-condensed" id="tablaBitacora">
                      <thead>
                          <tr>
-                         <th>ID Usuario</th>
-                         <th>Username</th>
-                         <th>Nombres</th>
-                         <th>Apellidos</th>
-                         <th>Tipo de usuario</th>
+                         <th>ID Bitacora</th>
+                         <th>Usuario</th>
+                         <th>Fecha</th>
+                         <th>Accion</th>
                          </tr>
                      </thead>
                      <tbody>
                         <?php
-                            require_once 'User.php';
-                            $user = new User();
-                            $Users = $user->obtenerTodos();
-                            $numUsers = count($Users);
-                            for ($i = 0; $i < $numUsers; $i++) {
+                            require_once 'Bitacora.php';
+                            $b = new Bitacora();
+                            $Bitacora = $b->obtenerTodos();
+                            $numBitacora = count($Bitacora);
+                            for ($i = 0; $i < $numBitacora; $i++) {
                                 echo "<tr>";
-                                echo "<td>" . $Users[$i]->getId_user() . "</td>";
-                                echo "<td>" . $Users[$i]->getUsername() . "</td>";
-                                echo "<td>" . $Users[$i]->getNombres() . "</td>";
-                                echo "<td>" . $Users[$i]->getApellidos() . "</td>";
-                                echo "<td>";
-                                if ($Users[$i]->getUserType() == "A") {
-                                    echo "Administrador";
-                                } else {
-                                    echo "Usuario standard";
-                                }
-                                echo "</td>";
+                                echo "<td>" . $Bitacora[$i]->getId_bitacora() . "</td>";
+                                echo "<td>" . $Bitacora[$i]->getId_usuario() . "</td>";
+                                echo "<td>" . $Bitacora[$i]->getFecha() . "</td>";
+                                echo "<td>" . $Bitacora[$i]->getAccion() . "</td>";
                                 echo "</tr>";
                             }
                         ?>
                      </tbody>
                  </table>
             </div>
-						<script>
-						$('#tablaUsuario').dataTable(
-							{
-    						"iDisplayLength": 5,
-    						"aLengthMenu": [[5, 10], [5, 10]],
-    					"oLanguage":
-    					{
-        				"sLengthMenu": "_MENU_ Registros por p&aacute;gina"
-    			} ,
-				});
-						</script>
     </body>
     </html>

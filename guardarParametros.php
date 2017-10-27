@@ -69,4 +69,7 @@ $b->setFecha(date('Y-m-d h:i:s'));
 $b->setAccion($accion);
 $controladorBitacora->agregar($b);
 
-header("Location:webprestamo.php");
+echo '<script type="text/javascript">
+								alert("Cambios realizados exitosamente");
+								window.location="webParametros.php";
+								</script>';

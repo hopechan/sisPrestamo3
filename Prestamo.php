@@ -79,6 +79,7 @@ class Prestamo {
       $printer = new Printer($connector);
       $fechaPago = date('d-m-Y');
       $horaPago = date('h:i:s');
+      $par = new Parametro();
       $Parametro = $par->obtener();
         $nombre_empresa =  $Parametro[0]->valor;
         $direccion = $Parametro[6]->valor;
@@ -101,7 +102,7 @@ class Prestamo {
       $printer->text("----------------------------\n");
       $printer->text("Total a pagar: $" .$valor + $mora . "\n");
       $printer->text("----------------------------\n");
-      $printer->text("Nuevo Saldo:   $". $nuevo_actualizado . "\n");
+      $printer->text("Nuevo Saldo:   $". $saldo_actualizado . "\n");
       $printer->feed(4);
       $printer->cut();
       $printer->close();
@@ -131,7 +132,6 @@ class Prestamo {
     function getTasa_mora () {
         return $this->tasa_mora;
     }
-
     function getCantidad_cuotas() {
         return $this->cantidad_cuotas;
     }

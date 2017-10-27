@@ -1,4 +1,4 @@
-<?php
+o<?php
 require __DIR__ . '/vendor/autoload.php';
 require_once 'Parametro.php';
 use Mike42\Escpos\Printer;

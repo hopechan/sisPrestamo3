@@ -27,7 +27,7 @@ $c = new Cuota();
   if ($_POST['cuota'] < ($_POST['interes'] + $_POST['mora'])) {
     echo '<script type="text/javascript">
                     alert("Cuota no valida");
-                    window.location="webprestamo.php";
+                    window.location="webPrestamos.php";
                     </script>';
   }
   else {

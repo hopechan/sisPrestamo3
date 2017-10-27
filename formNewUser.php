@@ -53,19 +53,30 @@ if ($_SESSION['rol'] != 'A') {
                         <a href="webPrestamos.php" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> Prestamos</a>
                     </li>
                 </ul>
-                <?php if ($_SESSION['rol'] == "A") {
-                  echo '<ul class="nav nav-sidebar">
-                    <li>
-                      <a href="webParametros.php" class="w3 bar-item w3-button"><i class="fa fa-cog"></i> Configuracion </a>
-                    </li>
-                  </ul>
-                  <ul class="nav nav-sidebar>"
-                    <li>
-                    <a href="webUsers.php" class="w3 bar-item w3-button"><i class="fa fa-users"></i> Usuarios </a>
-                    </li>
-                    </ul>';
-                }
-                ?>
+                <?php
+								if ($_SESSION['rol'] == 'A') {
+									echo '<ul class="nav nav-sidebar">
+										<li>
+											<a href="webParametros.php" class="w3 bar-item w3-button"><i class="fa fa-cog"></i> Configuracion </a>
+										</li>
+									</ul>
+									<ul class="nav nav-sidebar">
+										<li>
+										<a href="webUsers.php" class="w3 bar-item w3-button"><i class="fa fa-users"></i> Usuarios </a>
+										</li>
+									</ul>
+									<ul class="nav nav-sidebar">
+										<li>
+											<a href="reporteEstadosFinancieros.php" class="w3 bar-item w3-button"><i class="fa fa-university"></i> Estados Financieros </a>
+										</li>
+									</ul>
+									<ul class="nav nav-sidebar">
+			              <li>
+			                <a href="modificarPlantillaContrato.php" class="w3 bar-item w3-button"><i class="fa fa-file-text"></i> Editar Contrato </a>
+			              </li>
+			            <ul>';
+								}
+									?>
               </div>
                 <br>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
