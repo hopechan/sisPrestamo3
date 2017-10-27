@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/buscar.js"></script>
         <script src="js/calcularCuotaMensual.js"></script>
     </head>
     <body>
@@ -191,7 +190,7 @@
                 </div>
 
                 <div class="form-group" align="center">
-                <button id="guardarPrestamo" type="submit" name="guardarPrestamo" class="btn btn-primary"><i class="fa fa-save"></i> Guardar Prestamo</button>
+                <button id="guardarPrestamo" type="submit" name="guardarPrestamo" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
             </div>
         </form>
         </div>
