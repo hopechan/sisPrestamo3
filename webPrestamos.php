@@ -101,7 +101,7 @@
                 echo '<td>' . round($porcentaje, 2) . '%</td>';
                 echo '<td>'.'<a href="detallePrestamo.php?id_prestamo='.$prestamos[$i]->id_prestamo.'" data-toggle="tooltip" data-placement="bottom" title="Detalle"><button class="btn btn-sm btn-info"><i class="fa fa-eye"></i></button></a>';
                 echo '<a data-toggle="tooltip" data-placement="bottom" title="Nuevo pago" href="formNuevoPago.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&fecha_ultimo_pago='.$prestamos[$i]->fecha_ultimo_pago.'&nombres='.$prestamos[$i]->cliente->nombres.'&apellidos='.$prestamos[$i]->cliente->apellidos.'&monto='.$prestamos[$i]->monto.'&tasa_interes='.$prestamos[$i]->tasa_interes.'&cantidad_cuotas='.$prestamos[$i]->cantidad_cuotas.'&valor_cuota='.$prestamos[$i]->valor_cuota.'" ><button class="btn btn-sm btn-info"><i class="fa fa-usd"></i></button></a>';
-                echo '<a href="contrato.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&dui='.$prestamos[$i]->cliente->dui.'&nombres='.$prestamos[$i]->cliente->nombres.'&apellidos='.$prestamos[$i]->cliente->apellidos.'&monto='.$prestamos[$i]->monto.'&tasa='.$prestamos[$i]->tasa_interes.'" data-toggle="tooltip" data-placement="bottom" title="Contrato"><button class="btn btn-sm btn-info"><i class="fa fa-file"></i></button></a></tr>';
+                echo '<a href="contrato.php?id_prestamo='.$prestamos[$i]->id_prestamo.'&dui='.$prestamos[$i]->cliente->dui.'" data-toggle="tooltip" data-placement="bottom" title="Contrato"><button class="btn btn-sm btn-info"><i class="fa fa-file"></i></button></a></tr>';
             }
                ?>
             </tbody>
