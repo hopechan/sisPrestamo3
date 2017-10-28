@@ -2,7 +2,15 @@
 require 'fpdf.php';
 require 'Conexion.php';
 
+////
+require 'ControladorContrato.php';
+////
+
 $conn = new Conexion();
+
+////
+$cContrato = new ControladorContrato();
+////
 
 $dui = $_GET['dui'];
 $idPrestamo = $_GET['id_prestamo'];
@@ -62,7 +70,45 @@ while($flag) {
     $etiquetaDB = $resultado->fetch_assoc();
     $etiquetaContrato = utf8_decode($etiquetaDB[$etiqueta]);
 
-    $contrato .= $etiquetaContrato;
+    ////
+    $tempEtiquetaContrato = $etiquetaContrato;
+
+    switch ($etiqueta) {
+        case 'DUI':
+        case 'NIT':
+            $etiquetaContrato = utf8_decode($cContrato->numerosDocALetras($tempEtiquetaContrato));
+            break;
+        case 'Monto':
+        case 'valor_cuota':
+            $etiquetaContrato = utf8_decode($cContrato->cantidadDineroALetras($tempEtiquetaContrato));
+            break;
+        case 'tasa_interes':
+        case 'tasa_mora':
+            $etiquetaContrato = utf8_decode($cContrato->numeros1Al99EnLetrasCuotasFechas(str_pad($tempEtiquetaContrato, 2, 0, STR_PAD_LEFT), '', '', ''));
+            break;
+        case 'cantidad_cuotas':
+            $etiquetaContrato = utf8_decode($cContrato->numeros1Al999EnLetrasCuotasFechas(str_pad($tempEtiquetaContrato, 3, 0, STR_PAD_LEFT), '', '', ''));
+            break;
+        case 'Sexo':
+            if ($etiquetaContrato == 'F') {
+                $etiquetaContrato = 'Femenino';
+            } else {
+                $etiquetaContrato = 'Masculino';
+            }
+            break;
+        case 'capitalizacion':
+            if ($etiquetaContrato == 'M') {
+                $etiquetaContrato = 'Mensual';
+            } else {
+                $etiquetaContrato = 'Diaria';
+            }
+            break;
+        case 'fecha_inicio':
+            $etiquetaContrato = utf8_decode($cContrato->fechaALetras($etiquetaContrato));
+    }
+    ////
+
+    $contrato .= strtoupper($etiquetaContrato);
     $contrato .= substr($plantillaContrato, $finEtiqueta + 1, strpos($plantillaContrato, '<', $finEtiqueta) - $finEtiqueta - 1);
   }
 }
@@ -74,7 +120,6 @@ $pdf = new FPDF();
 $pdf->SetMargins(20, 20, 20);
 $pdf->addPage();
 $pdf->SetFont('Times', '', 12);
-$pdf->MultiCell(0, 10, $plantillaContrato, 'J');
 $pdf->MultiCell(0, 10, $contrato, 'J');
 
 
