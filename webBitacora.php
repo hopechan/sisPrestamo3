@@ -67,18 +67,17 @@ if ($_SESSION['rol'] != 'A') {
 					              <li>
 					                <a href="modificarPlantillaContrato.php" class="w3 bar-item w3-button"><i class="fa fa-file-text"></i> Editar Contrato </a>
 					              </li>
-					            <ul>';
+					            </ul>
+											<ul class="nav nav-sidebar">
+					              <li>
+					                <a href="webBitacora.php" class="w3 bar-item w3-button"><i class="fa fa-address-book"></i> Bitacora</a>
+					              </li>
+					            </ul> ';
                     }
                       ?>
                 </div>
                  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                 <div class="container">
-                     <h1 class="page-header">Bitacora</h1>
-                     <div class="col-md-8">
-                         <input type="text" class="form-control" name="busqueda" autocomplete="off" id="busqueda" onkeyup="buscar();" placeholder="Buscar...">
-                     </div>
-                     <!--<a href="formNewUser.php" class="btn btn-default"><i class="fa fa-plus"></i> Nuevo Usuario</a>-->
-                 </div>
+
                  <br>
                  <table class="table table-condensed" id="tablaBitacora">
                      <thead>
