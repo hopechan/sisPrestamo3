@@ -37,7 +37,7 @@ $c = new Cuota();
    $b = new Bitacora();
    $controladorBitacora = new Bitacora();
    //guarda la accion en la bitacora
-   $accion = "El usuario ".$_SESSION["userName"]." realizo un pago al prestamo # " . $_POST['id_prestamo'];
+   $accion = "El usuario ".$_SESSION["userName"]." realizo el pago #". $num_cuota . " al prestamo #". $_POST['id_prestamo'];
    $id_bitacora = $controladorBitacora->maxID($_SESSION["id_usuario"]);
    $b->setId_bitacora($id_bitacora);
    $b->setId_usuario($_SESSION["id_usuario"]);

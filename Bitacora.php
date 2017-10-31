@@ -53,7 +53,7 @@ public $accion;
 
   function maxID($id_usuario){
     $c = new Conexion();
-    $stmn =  "SELECT MAX(ID_bitacora) FROM bitacora WHERE ID_usuario='" . $id_usuario . "'";
+    $stmn =  "SELECT MAX(ID_bitacora) FROM bitacora";
     $resultado = $c->execQuery($stmn);
     $maxID = $resultado->fetch_assoc();
     $id_bitacora = $maxID['MAX(ID_bitacora)'] + 1;
