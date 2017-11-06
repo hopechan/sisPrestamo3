@@ -113,7 +113,7 @@ if ($_SESSION['rol'] != 'A') {
                                 } else {
                                     echo "Usuario standard";
                                 }
-                                echo "</td>";
+                                echo "</td></tr>";
 																echo "</tr>";
                             }
                         ?>
