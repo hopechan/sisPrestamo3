@@ -13,6 +13,8 @@ function comprobarPasswords() {
         document.getElementById("password").style.borderColor="#ff0000";
         document.getElementById("passwordAgain").style.borderColor="#ff0000";
     }
+    
+    comprobarUsername();
 }
 
 function comprobarEspacios() {
