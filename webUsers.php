@@ -77,7 +77,13 @@ if ($_SESSION['rol'] != 'A') {
                       ?>
                 </div>
                  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
+                     <div class="container">
+                         <h1 class="page-header">Usuarios</h1>
+                         <div class="col-md-8">
+                             <input type="text" class="form-control" name="busqueda" autocomplete="off" id="busqueda" onkeyup="buscar();" placeholder="Buscar...">
+                         </div>
+                         <a href="formNewUser.php" class="btn btn-default"><i class="fa fa-plus"></i> Nuevo Usuario</a>
+                     </div>
                  <br>
                  <table class="table table-condensed" id="tablaUsuario">
                      <thead>
