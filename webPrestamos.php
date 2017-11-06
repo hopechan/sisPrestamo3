@@ -54,12 +54,12 @@
                     </ul>
                     <ul class="nav nav-sidebar">
                       <li>
-                        <a href="reporteEstadosFinancieros.php" class="w3 bar-item w3-button"><i class="fa fa-university"></i> Estados Financieros </a>
+                        <a href="reporteEstadosFinancieros.php" target="_blank" class="w3 bar-item w3-button"><i class="fa fa-university"></i> Estados Financieros </a>
                       </li>
                     </ul>
                     <ul class="nav nav-sidebar">
                       <li>
-                        <a href="modificarPlantillaContrato.php" target="_blank" class="w3 bar-item w3-button"><i class="fa fa-file-text"></i> Editar Contrato </a>
+                        <a href="modificarPlantillaContrato.php" class="w3 bar-item w3-button"><i class="fa fa-file-text"></i> Editar Contrato </a>
                       </li>
                     </ul>
                     <ul class="nav nav-sidebar">
