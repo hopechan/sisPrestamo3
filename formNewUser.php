@@ -128,7 +128,7 @@ if ($_SESSION['rol'] != 'A') {
                       <div class="form-group">
                         <label class="col-md-4 control-label" for="saveUser"></label>
                         <div class="col-md-4">
-                          <button id="saveUser" type="submit" name="saveUser" class="btn btn-primary" disabled><i class="fa fa-save"></i>Guardar</button>
+                          <button id="saveUser" type="submit" name="saveUser" class="btn btn-primary" disabled><i class="fa fa-save"></i> Guardar</button>
                         </div>
                       </div>
                   </form>
