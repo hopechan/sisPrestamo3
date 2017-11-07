@@ -13,7 +13,6 @@ if ($_SESSION['rol'] != 'A') {
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <script src="js/jquery-3.2.1.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/formNewUser.js"></script>
         <script type="text/javascript">
           function validar(e) {
             tecla=(document.all)?e.keyCode:e.which;
@@ -133,6 +132,7 @@ if ($_SESSION['rol'] != 'A') {
                       </div>
                   </form>
                 </div>
+		    <script src="js/formNewUser.js"></script>
           </body>
     </html>
 -
