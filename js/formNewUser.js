@@ -1,3 +1,15 @@
+var isPasswordValid = false;
+var isUsernameValid = false;
+var btnSaveUser = document.getElementById("saveUser");
+
+function enableDisableSaveButton () {
+    if (isPasswordValid == true && isUsernameValid == true) {
+        btnSaveUser.disabled = false;
+    } else {
+        btnSaveUser.disabled = true;
+    }
+}
+
 function comprobarPasswords() {
     var password = document.getElementById("password")
     var passwordAgain = document.getElementById("passwordAgain");
@@ -5,16 +17,16 @@ function comprobarPasswords() {
 
     //comprueba si las contraseñas coinciden
     if (password.value == passwordAgain.value) {
-        btnSaveUser.disabled = false;
+        isPasswordValid = true;
+        enableDisableSaveButton();
         document.getElementById("password").style.borderColor=document.getElementById("userType").style.borderColor;
         document.getElementById("passwordAgain").style.borderColor=document.getElementById("userType").style.borderColor;
     } else {
-        btnSaveUser.disabled = true;
+        isPasswordValid = false;
+        enableDisableSaveButton();
         document.getElementById("password").style.borderColor="#ff0000";
         document.getElementById("passwordAgain").style.borderColor="#ff0000";
     }
-    
-    comprobarUsername();
 }
 
 function comprobarEspacios() {
@@ -40,9 +52,11 @@ function comprobarUsername() {
         if (existe == "true") {
             alert("Este nombre de usuario no está disponible");
             document.getElementById("username").style.borderColor="#ff0000";
-            btnSaveUser.disabled = true;
+            isUsernameValid = false;
+            enableDisableSaveButton();
         } else {
-            btnSaveUser.disabled = false;
+            isUsernameValid = true;
+            enableDisableSaveButton();
             document.getElementById("username").style.borderColor=document.getElementById("userType").style.borderColor;
         };
     });
